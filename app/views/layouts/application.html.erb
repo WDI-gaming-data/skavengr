@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <title>Skavengr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class="navbar navbar-default" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Skavengr</a>
+		</div>
+	
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" data-toggle="modal" data-target="#loginmodal">Login/Signup</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Quests</a></li>
+						<li><a href="#">something</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- Modal for Login -->
+	<div id="loginmodal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Login modal content-->
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        	<h4 class="modal-title">Login</h4>
+	      	</div>
+	      	<div class="modal-body">
+	        	<form action="" method="POST" role="form">
+	        		<legend>Form title</legend>
+	        	
+	        		<div class="form-group">
+	        			<input type="text" class="form-control" id="" placeholder="email">
+	        			<input type="text" class="form-control" id="" placeholder="password">
+	        		</div>
+	        		<p>Don't have an account?  <a data-toggle="modal" data-target="#signupmodal">Sign up</a></p>
+	        	
+	        		
+	        	
+	        		<button type="submit" class="btn btn-primary">Submit</button>
+	        	</form>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      	</div>
+	    </div>
+
+	    <!-- Sign up -->
+
+	  </div>
+	</div>
 
 <%= yield %>
 

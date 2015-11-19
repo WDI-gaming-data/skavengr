@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   def create
-  	render :json => params
-  # 	User.create signup_params
+  	# render :json => params
+  	User.create signup_params
+  	redirect_to root_path
   # 	user = User.authenticate signup_params['email'], signup_params['password']
   # 	if user
-  # 		session[:user_id] = user.id
+  # 		# session[:user_id] = user.id
 		# flash[:success] = "#{user.email} logged in successfully"
 		# redirect_to root_path
   # 	else
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def new
+  	User.new
   end
 
   def show
@@ -25,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def signup_params
-  	params.require(:user).permit(:email, :name, :password, :phone)
+  	params.require(:users).permit(:email, :name, :password, :phone)
   end
 end

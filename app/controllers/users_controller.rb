@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def create
-  	render :json params
+  	render :json => params
   # 	User.create signup_params
   # 	user = User.authenticate signup_params['email'], signup_params['password']
   # 	if user

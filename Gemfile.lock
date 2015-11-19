@@ -144,8 +144,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap_form
   bcrypt (~> 3.1.7)
+  bootstrap_form
   byebug
   coffee-rails (~> 4.1.0)
   email_validator

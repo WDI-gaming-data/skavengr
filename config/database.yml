@@ -35,10 +35,10 @@ development:
   # The password associated with the postgres role (username).
   #password:
 
-  # username: postgres
+  username: postgres
 
   # The password associated with the postgres role (username).
-  # password: postgresser
+  password: postgresser
 
 
 

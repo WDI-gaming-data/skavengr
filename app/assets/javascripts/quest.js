@@ -37,15 +37,16 @@ function createMarkerObj(name, map) {
 }
 
 function addFormRow() {
-  var row = $('li').append($('<input>').attr('type', 'text').addClass('loc');
-  // row.attr()markers.length));
-  $('#form').append(row);
+  var row = $('<li></li>').append($('<input>').attr('type', 'text').addClass('loc'));
+  row.attr('idx', markers.length);
+  $('#loc-list').append(row);
 }
 
 $(function() {
   $('button').click(function(e) {
     e.preventDefault();
     markers.push(createMarkerObj('test', map));
+    addFormRow();
   });
 });
 

@@ -11,7 +11,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       },
-      zoom: 10
+      zoom: 14
     });
     map.addListener('click', function(e) {
       createMarker(e.latLng, map);

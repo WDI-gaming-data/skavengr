@@ -27,7 +27,8 @@ function createMarkerObj(name, map) {
     animation: google.maps.Animation.DROP
   });
   marker.addListener('dragend', function() {
-    console.log(marker.getPosition());
+    var pos = marker.getPosition();
+    console.log(pos.lat(), pos.lng());
   });
   return {
     name: name,
@@ -35,10 +36,16 @@ function createMarkerObj(name, map) {
   };
 }
 
+function addFormRow() {
+  var row = $('li').append($('<input>').attr('type', 'text').addClass('loc');
+  // row.attr()markers.length));
+  $('#form').append(row);
+}
+
 $(function() {
   $('button').click(function(e) {
     e.preventDefault();
-    createMarkerObj('test', map);
+    markers.push(createMarkerObj('test', map));
   });
 });
 

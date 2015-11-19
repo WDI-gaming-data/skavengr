@@ -15,20 +15,30 @@ function initMap() {
       },
       zoom: 14
     });
-    map.addListener('click', function(e) {
-      createMarker(e.latLng, map);
-    });
   });
 }
 
-function createMarker(latLng, map) {
+//Returns an object with a name and the associated marker
+function createMarkerObj(name, map) {
   var marker = new google.maps.Marker({
-    position: latLng,
+    position: map.getCenter(),
     map: map,
     draggable:true,
     animation: google.maps.Animation.DROP
   });
   marker.addListener('dragend', function() {
-    console.log('Marker dragged');
+    console.log(marker.getPosition());
   });
+  return {
+    name: name,
+    marker: marker
+  };
 }
+
+$(function() {
+  $('button').click(function(e) {
+    e.preventDefault();
+    createMarkerObj('test', map);
+  });
+});
+

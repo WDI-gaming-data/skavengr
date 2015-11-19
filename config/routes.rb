@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  root 'main#index'
+
+  get 'users/create'
+
+  get 'users/new'
+
+  get 'users/show'
+
+  get 'users/delete'
+
+  get 'main/test' => 'main#mapstest'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

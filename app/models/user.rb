@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	email: true,
 	uniqueness: {case_sensitive: false}
 
-	validates :password
+	validates :password,
 	presence: true,
 	confirmation: true,
 	length: {minimum: 8}

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :quests
+
   root 'main#index'
 
   post 'users/create'

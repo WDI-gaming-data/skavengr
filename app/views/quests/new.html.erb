@@ -1,2 +1,9 @@
 <h1>Quests#new</h1>
 <p>Find me in app/views/quests/new.html.erb</p>
+
+
+<%= bootstrap_form_for :users, :url => url_for(:controller => 'quests', :action => 'create') do |f|%>
+	    <%= f.text_field :name, placeholder: 'name'%>
+
+	<%= f.submit 'create'%>
+<% end %>

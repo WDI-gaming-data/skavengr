@@ -51,19 +51,47 @@
 	        	<h4 class="modal-title">Login</h4>
 	      	</div>
 	      	<div class="modal-body">
-	        	<form action="" method="POST" role="form">
-	        		<legend>Form title</legend>
+	      	<%= bootstrap_form_for :users do |f|%>
+	      		<%= f.text_field :email, placeholder: 'email'%>
+				<%= f.password_field :password, placeholder: 'password' %>
+
+				<%= f.submit 'Login'%>
+	      	<% end %>
+	        		<p>Don't have an account? <a data-toggle="modal" data-target="#signupmodal" data-dismiss="modal">Sign up</a></p>
 	        	
-	        		<div class="form-group">
-	        			<input type="text" class="form-control" id="" placeholder="email">
-	        			<input type="text" class="form-control" id="" placeholder="password">
-	        		</div>
-	        		<p>Don't have an account?  <a data-toggle="modal" data-target="#signupmodal">Sign up</a></p>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      	</div>
+	    </div>
+
+	    <!-- Sign up -->
+
+	  </div>
+	</div>
+
+	<!-- Modal for Login -->
+	<div id="signupmodal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Login modal content-->
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        	<h4 class="modal-title">Signup</h4>
+	      	</div>
+	      	<div class="modal-body">
+
+	      	<%= bootstrap_form_for :users, :url => url_for(:controller => 'users', :action => 'create') do |f|%>
+	      		<%= f.text_field :email, placeholder: 'email'%>
+				<%= f.text_field :name, placeholder: 'username'%>
+				<%= f.text_field :phone, placeholder: 'phone number' %>
+				<%= f.password_field :password, placeholder: 'password' %>
+				<%= f.password_field :password_confirmation, placeholder: 'password confirm' %>
+
+				<%= f.submit 'Sign Up'%>
+	      	<% end %>
 	        	
-	        		
-	        	
-	        		<button type="submit" class="btn btn-primary">Submit</button>
-	        	</form>
 	      	</div>
 	      	<div class="modal-footer">
 	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

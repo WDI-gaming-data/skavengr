@@ -11,9 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-<<<<<<< HEAD
 /config/database.yml
+.DS_Store
 
-=======
-/config/database.yml
->>>>>>> ac6acac1b5fbe085a6d1da290c461e5f78d0248d

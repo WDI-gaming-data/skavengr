@@ -144,11 +144,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bootstrap_form
-=======
   bcrypt (~> 3.1.7)
->>>>>>> f714079a1ceac8d25b8af0c5d0ca24ce89b7a386
   byebug
   coffee-rails (~> 4.1.0)
   email_validator

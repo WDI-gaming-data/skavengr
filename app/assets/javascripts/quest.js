@@ -19,10 +19,11 @@ function initMap() {
 }
 
 //Returns an object with a name and the associated marker
-function createMarkerObj(name, map) {
+function createMarker(name, map) {
   var marker = new google.maps.Marker({
     position: map.getCenter(),
     map: map,
+    label: name,
     draggable:true,
     animation: google.maps.Animation.DROP
   });
@@ -30,10 +31,11 @@ function createMarkerObj(name, map) {
     var pos = marker.getPosition();
     console.log(pos.lat(), pos.lng());
   });
-  return {
-    name: name,
-    marker: marker
-  };
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(this.label);
+    infowindow.open(map, this);
+  });
+  return marker;
 }
 
 function addFormRow() {
@@ -45,8 +47,11 @@ function addFormRow() {
 $(function() {
   $('button').click(function(e) {
     e.preventDefault();
-    markers.push(createMarkerObj('test', map));
+    markers.push(createMarker('test', map));
     addFormRow();
+  });
+  $('.loc').keyup(function() {
+    markers[parseInt(this.idx)]['label'] = this.val();
   });
 });
 

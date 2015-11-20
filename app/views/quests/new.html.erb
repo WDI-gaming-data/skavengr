@@ -1,9 +1,5 @@
-<h1>Quests#new</h1>
-<p>Find me in app/views/quests/new.html.erb</p>
+<%= render "partials/new_quest_locations" %>
+<%= render "partials/new_quest_invite" %>
+<%= render "partials/new_quest_times" %>
 
-
-<%= bootstrap_form_for :users, :url => url_for(:controller => 'quests', :action => 'create') do |f|%>
-	    <%= f.text_field :name, placeholder: 'name'%>
-
-	<%= f.submit 'create'%>
-<% end %>
+<a class="btn btn-primary" data-toggle="modal" href='#modal-locations'>Configure Quest</a>

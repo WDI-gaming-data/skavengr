@@ -1,0 +1,20 @@
+<div class="modal fade" id="modal-times">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Set Times</h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for :quest do |f| %>
+          <%= f.datetime_local_field :start %>
+          <%= f.datetime_local_field :end %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

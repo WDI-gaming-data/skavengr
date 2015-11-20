@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119232503) do
+ActiveRecord::Schema.define(version: 20151120230537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20151119232503) do
   end
 
   add_index "locations", ["quest_id"], name: "index_locations_on_quest_id", using: :btree
+
+  create_table "locations_users", force: :cascade do |t|
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "locations_users", ["location_id"], name: "index_locations_users_on_location_id", using: :btree
+  add_index "locations_users", ["user_id"], name: "index_locations_users_on_user_id", using: :btree
 
   create_table "quests", force: :cascade do |t|
     t.string   "name"
@@ -57,6 +67,8 @@ ActiveRecord::Schema.define(version: 20151119232503) do
   end
 
   add_foreign_key "locations", "quests"
+  add_foreign_key "locations_users", "locations"
+  add_foreign_key "locations_users", "users"
   add_foreign_key "quests_users", "quests"
   add_foreign_key "quests_users", "users"
 end

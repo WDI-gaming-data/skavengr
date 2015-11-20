@@ -48,6 +48,22 @@ function addFormRow() {
   });
 }
 
+//Function to package the locations into an array without the extra Google Maps marker data
+//Should spit out an object that can be stringified and passed to the server
+function packageMarkers(arr) {
+  //var questName = value of some input, or param passed to this page
+  var locations = arr.map(function(marker) {
+    var rObj = {};
+    rObj.lat = marker.getPosition.lat();
+    rObj.lng = marker.getPosition.lng();
+    rObj.name = marker.label;
+  });
+  return {
+    //name: questName,
+    locations: locations
+  };
+}
+
 $(function() {
   $('button').click(function(e) {
     e.preventDefault();

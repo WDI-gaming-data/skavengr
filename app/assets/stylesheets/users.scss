@@ -1,3 +1,17 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+	text-align: center;
+}
+#makequest{
+	width: 50%;
+	margin-left: 25%;
+}
+@media(min-width: 600px){
+	#makequest{
+		width: 30%;
+		margin-left: 35%;
+	}
+}

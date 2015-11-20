@@ -14,19 +14,38 @@
  *= require_self
  */
 
+body{
+	font-family: 'Black Ops One';
+}
 .navbar{
+	height: 100px;
 	background-color: #9e0e0e;
 	border: 0px solid #9e0e0e;
 	border-radius: 0px;
 }
 #home{
+	margin-top: 50px;
 	color: white;
+	float: left;
 }
 #login{
+	margin-top: 50px;
 	color: white;
 }
 #username{
+	margin-top: 50px;
 	color: white;
+}
+#username:hover{
+	text-decoration: none;
+}
+#navright{
+	margin-right: 10px;
+	margin-top: 70px;
+	list-style-type: none;
+}
+.centertext{
+	text-align: center; 
 }
 img{
 	width: 60%;

@@ -32,16 +32,20 @@ function createMarker(name, map) {
     console.log(pos.lat(), pos.lng());
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(this.label);
-    infowindow.open(map, this);
+    var infoWindow = new google.maps.InfoWindow();
+    infoWindow.setContent(this.label);
+    infoWindow.open(map, this);
   });
   return marker;
 }
 
 function addFormRow() {
-  var row = $('<li></li>').append($('<input>').attr('type', 'text').addClass('loc'));
-  row.attr('idx', markers.length);
+  var row = $('<li></li>').append($('<input>').attr('type', 'text').attr('idx', markers.length).addClass('loc'));
   $('#loc-list').append(row);
+  $('.loc').keyup(function(e) {
+    console.log('in keyup');
+    markers[parseInt(this.attr('idx'))].setLabel(this.val());
+  });
 }
 
 $(function() {
@@ -50,8 +54,9 @@ $(function() {
     markers.push(createMarker('test', map));
     addFormRow();
   });
-  $('.loc').keyup(function() {
-    markers[parseInt(this.idx)]['label'] = this.val();
+  $('.loc').keyup(function(e) {
+    console.log('in keyup');
+    markers[parseInt(this.attr('idx'))].setLabel(this.val());
   });
 });
 

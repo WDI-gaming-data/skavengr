@@ -7,7 +7,7 @@ if(typeof gon === "undefined") {
 var markers = [];
 var infoWindows = [];
 
-function initMap() {
+function initNewQuestMap() {
   navigator.geolocation.getCurrentPosition(function(position) {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {

@@ -7,6 +7,7 @@ if(typeof gon === "undefined") {
 var markers = [];
 var clues = [];
 var infoWindows = [];
+var packagedMarkers = null;
 
 function initNewQuestMap() {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -75,10 +76,8 @@ $(function() {
     addFormRow();
     markers.push(createMarker('test', map));
   });
-  // $('.loc').keyup(function(e) {
-  //   console.log('in keyup');
-  //   console.log(this);
-  //   markers[parseInt(this.attr('idx'))].setLabel(this.val());
-  // });
+  $('#trigger-time').click(function() {
+    packagedMarkers = packageMarkers(markers);
+  });
 });
 

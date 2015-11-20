@@ -47,12 +47,35 @@ function createMarker(name, map) {
 }
 
 function addFormRow() {
-  var row = $('<li></li>').append($('<input>').attr('type', 'text').attr('idx', markers.length).addClass('loc').addClass('form-control').attr('name', 'user[name]'));
-  $('#loc-list').append(row);
+  var idStr = 'loc-' + markers.length
+  var nameInput = $('<input>').attr('type', 'text')
+    .attr('idx', markers.length)
+    .addClass('loc')
+    .addClass('form-control')
+    .attr('name', 'user[name]')
+    .attr('id', idStr);
+  var nameGroup = $('<div></div>').addClass('form-group');
+  nameGroup.append('<label>Name</label>')
+    .attr('for', idStr);
+  nameGroup.append(nameInput);
+  $('#loc-list').append(nameGroup);
+  var clueIdStr = 'clue-' + markers.length;
+  var clueInput = $('<textarea>')
+    .attr('id', clueIdStr)
+    .addClass('clue')
+    .addClass('form-control');
+  var clueGroup = $('<div></div>').addClass('form-group');
+  clueGroup.append('<label>Clue</label>')
+    .attr('for', clueIdStr);
+  clueGroup.append(clueInput);
   $('.loc').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     markers[idx].setLabel(this.value);
     infoWindows[idx].setContent(this.value);
+  });
+  $('.clue').keyup(function(e) {
+    var idx = parseInt(this.getAttribute('idx'), 10);
+    clues[idx] = this.value;
   });
 }
 

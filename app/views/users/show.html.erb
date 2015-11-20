@@ -1,4 +1,4 @@
-<h1>User#profile/homepage</h1>
-<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-success" %>
+<h1>Welcome <%= @current_user.name %></h1>
+<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-success", id: "makequest" %>
 
 

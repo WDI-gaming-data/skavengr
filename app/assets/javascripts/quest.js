@@ -5,6 +5,7 @@ if(typeof gon === "undefined") {
 }
 
 var markers = [];
+var infoWindows = [];
 
 function initMap() {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -31,10 +32,13 @@ function createMarker(name, map) {
     var pos = marker.getPosition();
     console.log(pos.lat(), pos.lng());
   });
+  var infoWindow = new google.maps.InfoWindow();
+  infoWindows.push(infoWindow);
   google.maps.event.addListener(marker, 'click', function() {
-    var infoWindow = new google.maps.InfoWindow();
+    // var infoWindow = new google.maps.InfoWindow();
     infoWindow.setContent(this.label);
     infoWindow.open(map, this);
+    // infoWindows.push(infoWindow);
   });
   return marker;
 }
@@ -43,8 +47,9 @@ function addFormRow() {
   var row = $('<li></li>').append($('<input>').attr('type', 'text').attr('idx', markers.length).addClass('loc'));
   $('#loc-list').append(row);
   $('.loc').keyup(function(e) {
-    console.log('in keyup');
-    markers[parseInt(this.attr('idx'))].setLabel(this.val());
+    var idx = parseInt(this.getAttribute('idx'), 10);
+    markers[idx].setLabel(this.value);
+    infoWindows[idx].setContent(this.value);
   });
 }
 
@@ -67,11 +72,12 @@ function packageMarkers(arr) {
 $(function() {
   $('button').click(function(e) {
     e.preventDefault();
-    markers.push(createMarker('test', map));
     addFormRow();
+    markers.push(createMarker('test', map));
   });
   $('.loc').keyup(function(e) {
     console.log('in keyup');
+    console.log(this);
     markers[parseInt(this.attr('idx'))].setLabel(this.val());
   });
 });

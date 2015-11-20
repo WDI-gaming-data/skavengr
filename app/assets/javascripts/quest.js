@@ -85,10 +85,11 @@ function addFormRow() {
 function packageMarkers(arr) {
   var locations = arr.map(function(marker, idx) {
     var rObj = {};
-    rObj.lat = marker.getPosition.lat();
-    rObj.lng = marker.getPosition.lng();
+    rObj.lat = marker.getPosition().lat();
+    rObj.lng = marker.getPosition().lng();
     rObj.name = marker.label;
     rObj.clue = clues[idx];
+    return rObj;
   });
   return locations;
 }
@@ -102,9 +103,13 @@ $(function() {
   $('#trigger-time').click(function() {
     packagedMarkers = packageMarkers(markers);
   });
-  $('#modal-locations').on('shown.bs.modal', function () {
+  $('#modal-locations').on('show.bs.modal', function () {
     console.log('in the resize listener');
-    google.maps.event.trigger(map, "resize");
+    try {
+      google.maps.event.trigger(map, "resize");
+    } catch(e) {
+      console.log(e);
+    }
   });
 });
 

@@ -1,9 +1,14 @@
-<h1>Quests#new</h1>
-<p>Find me in app/views/quests/new.html.erb</p>
+<%= render "partials/new_quest_invite" %>
+<!-- Trigger the hero invite modal -->
+<a class="btn btn-primary" data-toggle="modal" href='#modal-invite'>Invite Heroes</a>
 
+<!-- Form for adding quest objectives -->
+<form>
+  <ol id='loc-list'>
+  </ol>
+  <button>Click me</button>
+</form>
 
-<%= bootstrap_form_for :users, :url => url_for(:controller => 'quests', :action => 'create') do |f|%>
-	    <%= f.text_field :name, placeholder: 'name'%>
-
-	<%= f.submit 'create'%>
-<% end %>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzi-6l9dHiM-QmEvZ9aDD44hHrbv4ySOc&callback=initMap"
+    async defer></script>

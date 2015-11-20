@@ -47,7 +47,7 @@ function createMarker(name, map) {
 }
 
 function addFormRow() {
-  var idStr = 'loc-' + markers.length
+  var idStr = 'loc-' + markers.length;
   var nameInput = $('<input>').attr('type', 'text')
     .attr('idx', markers.length)
     .addClass('loc')
@@ -68,6 +68,7 @@ function addFormRow() {
   clueGroup.append('<label>Clue</label>')
     .attr('for', clueIdStr);
   clueGroup.append(clueInput);
+  $('#loc-list').append(clueGroup).append($('<hr/>'));
   $('.loc').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     markers[idx].setLabel(this.value);
@@ -100,6 +101,10 @@ $(function() {
   });
   $('#trigger-time').click(function() {
     packagedMarkers = packageMarkers(markers);
+  });
+  $('#modal-locations').on('shown.bs.modal', function () {
+    console.log('in the resize listener');
+    google.maps.event.trigger(map, "resize");
   });
 });
 

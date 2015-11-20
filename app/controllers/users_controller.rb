@@ -1,20 +1,20 @@
 class UsersController < ApplicationController
 
 	before_action :is_authenticated?, only: [:show]
-	
+
   def create
   	# render :json => params
   	User.create signup_params
-  	redirect_to root_path
-  # 	user = User.authenticate signup_params['email'], signup_params['password']
-  # 	if user
-  # 		# session[:user_id] = user.id
-		# flash[:success] = "#{user.email} logged in successfully"
-		# redirect_to root_path
-  # 	else
-  # 		flash[:danger] = "User login failed"
-		# redirect_to login_path
-  # 	end
+
+  	user = User.authenticate signup_params['email'], signup_params['password']
+  	if user 
+  		session[:user_id] = user.id
+  		flash[:success] = "#{user.email} logged in successfully"
+  		redirect_to user_path(user)
+  	else
+  		flash[:danger] = "Authentication failed"
+  		redirect_to root_path
+  	end
   end
 
   def new

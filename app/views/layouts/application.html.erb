@@ -26,20 +26,22 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
+				<% if @current_user %>
+					<li class="dropdown">
+						<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Quests</a></li>
+							<li><a href="#">something</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li><a href="#">Logout</a></li>
+						</ul>
+					</li>
+				<% end %>
 				<% if @current_user  %>
 				<li><a id="login" href="/logout">Logout</a></li>
 				<% else  %>
 				<li><a id="login" href="#" data-toggle="modal" data-target="#loginmodal">Login/Signup</a></li>
 				<% end  %>
-				<li class="dropdown">
-					<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Quests</a></li>
-						<li><a href="#">something</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li><a href="#">Logout</a></li>
-					</ul>
-				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>

@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	has_and_belongs_to_many :quests
+	has_and_belongs_to_many :locations
 
 	def self.authenticate email, password
 		User.find_by_email(email).try(:authenticate, password)

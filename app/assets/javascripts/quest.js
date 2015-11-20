@@ -47,8 +47,7 @@ function createMarker(name, map) {
 }
 
 function addFormRow() {
-  var row = $('<li></li>').append($('<input>').attr('type', 'text').attr('idx', markers.length).addClass('loc'));
-  row.attr('name', 'user[name]');
+  var row = $('<li></li>').append($('<input>').attr('type', 'text').attr('idx', markers.length).addClass('loc').addClass('form-control').attr('name', 'user[name]'));
   $('#loc-list').append(row);
   $('.loc').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
@@ -71,7 +70,7 @@ function packageMarkers(arr) {
 }
 
 $(function() {
-  $('button').click(function(e) {
+  $('#new-location').click(function(e) {
     e.preventDefault();
     addFormRow();
     markers.push(createMarker('test', map));

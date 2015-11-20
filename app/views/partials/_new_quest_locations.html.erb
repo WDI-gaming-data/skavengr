@@ -1,0 +1,35 @@
+<div class="modal fade" id="modal-locations">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Configure Quest</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Start modal body -->
+        <div class="row">
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div id="map"></div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <!-- Form for adding quest objectives -->
+            <form role="form">
+              <button id="new-location">Add Objective</button>
+              <ol id='loc-list'>
+              </ol>
+            </form>
+          </div>
+        </div>
+      <!-- End Modal Body -->
+      </div>
+      <div class="modal-footer">
+        <!-- Trigger the hero invite modal -->
+        <a class="btn btn-primary" data-toggle="modal" data-target='#modal-invite' data-dismiss="modal">Invite Heroes</a>
+        <!-- Trigger the time picker modal -->
+        <a class="btn btn-primary" data-toggle="modal" id="trigger-time" href='#modal-times'>Pick Start & End Times</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzi-6l9dHiM-QmEvZ9aDD44hHrbv4ySOc&callback=initNewQuestMap"
+              async defer></script>

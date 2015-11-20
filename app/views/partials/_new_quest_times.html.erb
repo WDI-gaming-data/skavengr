@@ -7,8 +7,8 @@
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for :quest do |f| %>
-          <%= f.datetime_local :start %>
-          <%= f.datetime_local :end %>
+          <%= f.datetime_local_field :start %>
+          <%= f.datetime_local_field :end %>
         <% end %>
       </div>
       <div class="modal-footer">

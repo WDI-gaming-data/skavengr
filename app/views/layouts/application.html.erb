@@ -26,7 +26,11 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
+				<% if @current_user  %>
+				<li><a id="login" href="/logout">Logout</a></li>
+				<% else  %>
 				<li><a id="login" href="#" data-toggle="modal" data-target="#loginmodal">Login/Signup</a></li>
+				<% end  %>
 				<li class="dropdown">
 					<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -51,7 +55,7 @@
 	        	<h4 class="modal-title">Login</h4>
 	      	</div>
 	      	<div class="modal-body">
-	      	<%= bootstrap_form_for :users do |f|%>
+	      	<%= bootstrap_form_for :user, :url => url_for(:controller => 'sessions', :action => 'create') do |f|%>
 	      		<%= f.text_field :email, placeholder: 'email'%>
 				<%= f.password_field :password, placeholder: 'password' %>
 
@@ -102,6 +106,8 @@
 
 	  </div>
 	</div>
+
+	<%= render "partials/flash" %>
 
 <%= yield %>
 

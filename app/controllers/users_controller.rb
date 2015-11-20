@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+	before_action :is_authenticated?, only: [:show]
+	
   def create
   	# render :json => params
   	User.create signup_params

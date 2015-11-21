@@ -19,9 +19,10 @@ body{
 }
 .navbar{
 	height: 100px;
-	background-color: #9e0e0e;
-	border: 0px solid #9e0e0e;
+	background-color: #960404;
+	border: 0px solid #960404;
 	border-radius: 0px;
+	margin-bottom: 0px;
 }
 #home{
 	margin-top: 50px;
@@ -48,6 +49,5 @@ body{
 	text-align: center; 
 }
 img{
-	width: 60%;
-	margin-left: 20%;
+	width: 100%;
 }

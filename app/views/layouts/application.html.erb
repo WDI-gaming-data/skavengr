@@ -18,7 +18,7 @@
 
 		<a id="home" class="navbar-brand" href="/">Skavengr</a>
 			<div id="navright" class="pull-right">
-				<ul>
+
 				<% if @current_user  %>
 					<li class="dropdown">
 						<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %> <b class="caret"></b></a>
@@ -31,7 +31,7 @@
 				<% else  %>
 					<li><a id="login" href="#" data-toggle="modal" data-target="#loginmodal">Login/Signup</a></li>
 				<% end  %>
-				</ul>
+
 			</div>
 
 	</nav>

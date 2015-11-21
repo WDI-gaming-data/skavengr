@@ -100,8 +100,11 @@ $(function() {
     addFormRow();
     markers.push(createMarker('test', map));
   });
-  $('#trigger-time').click(function() {
+  $('.trigger-time').click(function(e) {
+    e.preventDefault();
     packagedMarkers = packageMarkers(markers);
+    console.log(packagedMarkers)
+    $('#quest_locations').val(packagedMarkers);
   });
   $('#modal-locations').on('show.bs.modal', function () {
     console.log('in the resize listener');

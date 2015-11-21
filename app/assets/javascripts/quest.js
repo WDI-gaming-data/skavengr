@@ -61,10 +61,16 @@ function addFormRow() {
 function packageMarkers(arr) {
   var locations = arr.map(function(marker, idx) {
     var rObj = {};
-    rObj.lat = marker.getPosition.lat();
-    rObj.lng = marker.getPosition.lng();
+    // var pos = marker.getPosition();
+    rObj.lat = marker.getPosition().lat();
+    rObj.lng = marker.getPosition().lng();
     rObj.name = marker.label;
     rObj.clue = clues[idx];
+    console.log(rObj);
+    // console.log(pos.lat());
+    // console.log(pos.lng());
+    // console.log(idx);
+    return rObj;
   });
   return locations;
 }
@@ -75,8 +81,11 @@ $(function() {
     addFormRow();
     markers.push(createMarker('test', map));
   });
-  $('#trigger-time').click(function() {
+  $('.trigger-time').click(function(e) {
+    e.preventDefault();
     packagedMarkers = packageMarkers(markers);
+    console.log(packagedMarkers)
+    $('#quest_locations').val(packagedMarkers);
   });
 });
 

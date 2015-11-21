@@ -23,6 +23,10 @@ class UsersController < ApplicationController
 
   def show
   	@current_user ||= User.find_by_id(session[:user_id])
+  	@quests = Quest.where(owner_id: @current_user.id )
+  	puts "******"
+  	puts @quests
+  	puts "******"
   end
 
   def delete

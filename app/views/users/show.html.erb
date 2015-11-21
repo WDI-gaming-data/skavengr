@@ -2,3 +2,14 @@
 <%= link_to "Make a new Quest", new_quest_path, class: "btn btn-success", id: "makequest" %>
 
 
+<!-- Lists all quests the user has participated in -->
+<% @quests.each do |q| %>
+	<div class="container questdiv">
+		<h4><%=  q.name %></h4>
+		<p><%= q.start_date %></p>
+		<p><%= q.end_date %></p>
+		<div>
+			
+		</div>
+	</div>
+<% end %>

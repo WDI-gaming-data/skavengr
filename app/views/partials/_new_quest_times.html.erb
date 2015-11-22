@@ -7,6 +7,7 @@
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for :quest, url: quests_path do |f| %>
+          <%= f.text_field :name, placeholder: 'Name Your Quest' %>
           <%= f.datetime_local_field :start %>
           <%= f.datetime_local_field :end %>
           <%= f.hidden_field :locations  %>

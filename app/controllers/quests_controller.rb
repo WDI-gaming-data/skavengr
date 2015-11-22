@@ -12,19 +12,23 @@ class QuestsController < ApplicationController
   # hasn't already completed them. The front-end JS can then track if the user gets
   # close enough to complete them.
   def show
-    quest = Quest.find(params[:id])
-    if quest.users.exists?(@current_user.id)
+    @quest = Quest.find(params[:id])
+    if @quest.users.exists?(@current_user.id)
       gon.track = true
-      locations = quest.locations
+      locations = @quest.locations
       gon.remaining_locations = []
+      gon.completed_locations = []
       locations.each do |loc|
         if loc.users.exists?(@current_user.id)
-          break
+          gon.completed_locations << loc
         else
           gon.remaining_locations << loc
         end
       end
+      @remaining_locations = gon.remaining_locations
+      @completed_locations = gon.completed_locations
     else
+      gon.track = false
       flash[:danger] = "You are not a member of this quest! Please contact the quest owner for an invite."
       redirect_to root_path
     end

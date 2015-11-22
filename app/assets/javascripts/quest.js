@@ -62,6 +62,7 @@ function addFormRow() {
   var clueIdStr = 'clue-' + markers.length;
   var clueInput = $('<textarea>')
     .attr('id', clueIdStr)
+    .attr('idx', markers.length)
     .addClass('clue')
     .addClass('form-control');
   var clueGroup = $('<div></div>').addClass('form-group');

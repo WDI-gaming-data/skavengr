@@ -1,8 +1,4 @@
 var map = null;
-//Check if the gon object exists
-if(typeof gon === "undefined") {
-  gon = {};
-}
 
 var markers = [];
 var clues = [];
@@ -62,6 +58,7 @@ function addFormRow() {
   var clueIdStr = 'clue-' + markers.length;
   var clueInput = $('<textarea>')
     .attr('id', clueIdStr)
+    .attr('idx', markers.length)
     .addClass('clue')
     .addClass('form-control');
   var clueGroup = $('<div></div>').addClass('form-group');

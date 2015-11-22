@@ -3,7 +3,9 @@ var map = null;
 var markers = [];
 var clues = [];
 var infoWindows = [];
+var heroes = [];
 var packagedMarkers = null;
+var packagedHeroes = null;
 
 function initNewQuestMap() {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -58,7 +60,7 @@ function addFormRow() {
   var clueIdStr = 'clue-' + markers.length;
   var clueInput = $('<textarea>')
     .attr('id', clueIdStr)
-    .attr('idx', markers.length)
+    .attr('idx', clues.length)
     .addClass('clue')
     .addClass('form-control');
   var clueGroup = $('<div></div>').addClass('form-group');
@@ -74,6 +76,27 @@ function addFormRow() {
   $('.clue').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     clues[idx] = this.value;
+  });
+}
+
+function addHeroFormRow() {
+  var idStr = 'hero-' + heroes.length;
+  var nameInput = $('<input>').attr('type', 'text')
+    .attr('idx', heroes.length)
+    .addClass('hero')
+    .addClass('form-control')
+    .attr('name', 'user[name]')
+    .attr('id', idStr);
+  heroes.push('');
+  var nameGroup = $('<div></div>').addClass('form-group');
+  nameGroup.append('<label>Hero\'s email!</label>')
+    .attr('for', idStr);
+  nameGroup.append(nameInput);
+  $('#hero-list').append(nameGroup);
+  $('.hero').keyup(function(e) {
+    var idx = parseInt(this.getAttribute('idx'), 10);
+    heroes[idx] = this.value;
+    console.log(heroes, idx);
   });
 }
 
@@ -97,11 +120,16 @@ $(function() {
     addFormRow();
     markers.push(createMarker('test', map));
   });
-  $('.trigger-time').click(function(e) {
+  $('#new-hero').click(function(e){
     e.preventDefault();
+    addHeroFormRow();
+  })
+  $('.trigger-time').click(function() {
     packagedMarkers = packageMarkers(markers);
-    console.log(packagedMarkers)
-    $('#quest_locations').val(packagedMarkers);
+    packagedMarkersString = JSON.stringify(packagedMarkers);
+    packagedHeroes = JSON.stringify(heroes);
+    $('#quest_locations').val(packagedMarkersString);
+    $('#quest_heroes').val(packagedHeroes);
   });
   $('#modal-locations').on('show.bs.modal', function () {
     console.log('in the resize listener');

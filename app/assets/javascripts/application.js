@@ -11,12 +11,13 @@
 // about supported directives.
 //
 //= require jquery_ujs
+//= require globals
 //= require map
 //= require quest
 //= require turbolinks
 //= require_tree .
 
-// $(document).ready(function(){
+//$(document).ready(function(){
 
 // 	$('.carousel').carousel({
 // 		interval: 500

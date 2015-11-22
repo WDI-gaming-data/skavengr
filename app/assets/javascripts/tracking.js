@@ -1,5 +1,4 @@
 var watchId = null;
-var questLocations = ['locations from gon'];
 
 function startWatching() {
   watchId = navigator.geolocation.watchPosition(fx, showError, {enableHighAccuracy: true});
@@ -22,7 +21,7 @@ function checkDistance(lat_a, lng_a, lat_b, lng_b, distanceThreshold) {
 }
 
 function monitorPosition(pos) {
-  questLocations.forEach(function(location) {
+  gon.remaining_locations.forEach(function(location) {
     var completed = checkDistance(
       pos.coords.latitude,
       pos.coords.longitude,
@@ -31,17 +30,13 @@ function monitorPosition(pos) {
       50
     );
     if(completed === true) {
-      //ajax post to complete this location
+      $.post('/quests/location', {location_id: location.id}, null, 'json');
     }
   });
 }
 
-
-//&callback=initNewQuestMap
-
-// function listPosition(position) {
-//   console.log('in the list function');
-//   console.log(position);
-//   var el = $('<h1></h1>').text('Lat: ' + position.coords.latitude + ' Long: ' + position.coords.longitude);
-//   $('#loc').prepend(el);
-// }
+if(gon.track) {
+  startWatching();
+} else {
+  console.log('Error: User not recognized as a member of this quest');
+}

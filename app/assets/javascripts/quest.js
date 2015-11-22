@@ -1,8 +1,4 @@
 var map = null;
-//Check if the gon object exists
-if(typeof gon === "undefined") {
-  gon = {};
-}
 
 var markers = [];
 var clues = [];

@@ -1,7 +1,30 @@
 var watchId = null;
+var playerCircle = null;
+
+function initPlayerMap() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      },
+      zoom: 18
+    });
+    playerCircle = new google.maps.Circle({
+      strokeColor: '#ffffff',
+      strokeOpacity: 1,
+      strokeWeight: 2,
+      fillColor: '#0066ff',
+      fillOpacity: 1,
+      map: map,
+      center: map.center,
+      radius: 5
+    });
+  });
+}
 
 function startWatching() {
-  watchId = navigator.geolocation.watchPosition(fx, showError, {enableHighAccuracy: true});
+  watchId = navigator.geolocation.watchPosition(monitorPosition, showError, {enableHighAccuracy: true});
 }
 
 function stopWatching() {
@@ -21,6 +44,7 @@ function checkDistance(lat_a, lng_a, lat_b, lng_b, distanceThreshold) {
 }
 
 function monitorPosition(pos) {
+  playerCircle.center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
   gon.remaining_locations.forEach(function(location) {
     var completed = checkDistance(
       pos.coords.latitude,
@@ -36,7 +60,8 @@ function monitorPosition(pos) {
 }
 
 if(gon.track) {
+  console.log('Tracking user position');
   startWatching();
 } else {
-  console.log('Error: User not recognized as a member of this quest');
+  console.log('Not currently tracking user position.');
 }

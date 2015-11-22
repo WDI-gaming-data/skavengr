@@ -1,4 +1,21 @@
-<h1>Quests#show</h1>
-<p>Find me in app/views/quests/show.html.erb</p>
+<h1><%= @quest.name %></h1>
+<div class="locations">
+  <h2>Current Objectives</h2>
+  <% @remaining_locations.each do |loc| %>
+    <div class="well">
+      <h3><%= loc.name %></h3>
+      <p><%= loc.clue %></p>
+    </div>
+  <% end %>
+  <h2>Completed Objectives</h2>
+  <% @completed_locations.each do |loc| %>
+    <div class="well">
+      <h3><%= loc.name %></h3>
+      <p><%= loc.clue %></p>
+    </div>
+  <% end %>
+</div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzi-6l9dHiM-QmEvZ9aDD44hHrbv4ySOc&libraries=geometry" async defer></script>
+<div id="map"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzi-6l9dHiM-QmEvZ9aDD44hHrbv4ySOc&libraries=geometry&callback=initPlayerMap" async defer></script>

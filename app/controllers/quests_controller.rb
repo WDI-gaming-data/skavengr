@@ -39,7 +39,7 @@ class QuestsController < ApplicationController
     quest_parameters = params[:quest]
     locations = JSON.parse quest_parameters[:locations]
     heroes = JSON.parse quest_parameters[:heroes]
-  	quest = Quest.create(:name => "At home", :owner_id=>1, :start_date=>quest_parameters['start'], :end_date=>quest_params['end'])
+  	quest = Quest.create(:name => :name, :owner_id=>@current_user.id, :start_date=>quest_parameters['start'], :end_date=>quest_params['end'])
   	locations.each do |location|
       quest.locations.create name: location['name'], clue: location['clue'], lat: location['lat'], lng: location['lng'];
     end

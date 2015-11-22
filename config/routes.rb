@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'users' => 'users#create'
 
+  post 'quests/location' => 'quests#complete_location'
+
   # get 'users/new'
 
   get 'users/:id', to: 'users#show', as: 'user'

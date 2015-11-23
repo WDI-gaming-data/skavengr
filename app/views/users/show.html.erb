@@ -22,6 +22,7 @@
 			<h4><%=  q.name %></h4>
 			<p><%= q.start_date %></p>
 			<p><%= q.end_date %></p>
+			<%= link_to 'Delete this quest', quest_path(q), class: 'btn', method: :delete %>
 		</div>	
 		<% end %>
 	</div>

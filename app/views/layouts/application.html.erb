@@ -26,7 +26,7 @@
 						<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %> <b class="caret"></b></a>
 						<ul class="dropdown-menu pull-right">
 							<li><a href="/users/<%= @current_user.id %>">Quests</a></li>
-							<li><a href="#">Edit Profile</a></li>
+							<li><a href="/users/<%= @current_user.id %>/edit">Edit Profile</a></li>
 							<li><a href="/logout">Logout</a></li>
 						</ul>
 					</li>
@@ -38,62 +38,13 @@
 
 	</nav>
 
-	<!-- Modal for Login -->
-	<div id="loginmodal" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
+	<!-- Modal for Login and Signup -->
+	<%= render "partials/login_modal" %>
+	<%= render "partials/signup_modal" %>
 
-	    <!-- Login modal content-->
-	    <div class="modal-content">
-	      	<div class="modal-header">
-	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        	<h4 class="modal-title">Login</h4>
-	      	</div>
-	      	<div class="modal-body">
-	      	<%= bootstrap_form_for :user, :url => url_for(:controller => 'sessions', :action => 'create') do |f|%>
-	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com'%>
-				<%= f.password_field :password, placeholder: '********' %>
 
-				<%= f.submit 'Login'%>
-	      	<% end %>
-	        	<p class="centertext">Don't have an account? <a data-toggle="modal" data-target="#signupmodal" data-dismiss="modal">Sign up</a></p>
-	      	</div>
-	    </div>
 
-	    <!-- Sign up -->
-
-	  </div>
-	</div>
-
-	<!-- Modal for Login -->
-	<div id="signupmodal" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
-
-	    <!-- Login modal content-->
-	    <div class="modal-content">
-	      	<div class="modal-header">
-	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        	<h4 class="modal-title">Signup</h4>
-	      	</div>
-	      	<div class="modal-body">
-
-	      	<%= bootstrap_form_for :users, :url => url_for(:controller => 'users', :action => 'create') do |f|%>
-	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com'%>
-				<%= f.text_field :name, placeholder: 'username'%>
-				<%= f.text_field :phone, placeholder: '10 digit number, no spaces' %>
-				<%= f.password_field :password, placeholder: 'minimun 8 characters' %>
-				<%= f.password_field :password_confirmation, placeholder: 're-type password' %>
-
-				<%= f.submit 'Sign Up'%>
-	      	<% end %>
-	        	<p class="centertext"><a data-toggle="modal" data-target="#loginmodal" data-dismiss="modal">Back to Login</a></p>
-	      	</div>
-	    </div>
-
-	    <!-- Sign up -->
-
-	  </div>
-	</div>
-
+	<!-- Flash notifications -->
 	<%= render "partials/flash" %>
 
 <%= yield %>

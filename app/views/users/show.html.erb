@@ -1,8 +1,9 @@
+<div id="userbackground">
 <h1>Welcome <%= @current_user.name %></h1>
-<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-success", id: "makequest" %>
-
+<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-primary", id: "makequest" %>
 
 <!-- Lists all quests the user has participated in -->
+<div id="quest-container">
 <% @quests.each do |q| %>
 	<div class="container questdiv">
 		<h4><%=  q.name %></h4>
@@ -13,3 +14,6 @@
 		</div>
 	</div>
 <% end %>
+</div>
+
+</div>

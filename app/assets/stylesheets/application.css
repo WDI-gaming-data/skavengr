@@ -51,3 +51,18 @@ body{
 img{
 	width: 100%;
 }
+.btn{
+	background-color: #960404;
+	border: 2px solid white;
+	color: white;
+}
+.btn.active, .btn:active{
+	background-color: #960404;
+	border: 2px solid white;
+	color: white;
+}
+.btn:hover{
+	background-color: white;
+	color: #960404;
+	border-color:  #960404;
+}

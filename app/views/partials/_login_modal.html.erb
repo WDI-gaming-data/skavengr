@@ -9,8 +9,8 @@
 	      	</div>
 	      	<div class="modal-body">
 	      	<%= bootstrap_form_for :user, :url => url_for(:controller => 'sessions', :action => 'create') do |f|%>
-	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com'%>
-				<%= f.password_field :password, placeholder: '********' %>
+	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com', icon: "user" %>
+				<%= f.password_field :password, placeholder: '********', icon: "lock" %>
 
 				<%= f.submit 'Login'%>
 	      	<% end %>

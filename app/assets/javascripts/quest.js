@@ -162,7 +162,7 @@ function isNotNull(obj) {
 function packageMarkers(arr) {
   var filteredLocations = arr.filter(isNotNull);
   var filteredClues = clues.filter(isNotNull);
-  var locations = filtered.map(function(marker, idx) {
+  var locations = filteredLocations.map(function(marker, idx) {
     var rObj = {};
     rObj.lat = marker.getPosition().lat();
     rObj.lng = marker.getPosition().lng();

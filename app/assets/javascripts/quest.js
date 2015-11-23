@@ -71,7 +71,15 @@ function addFormRow() {
   clueGroup.append('<label>Clue</label>')
     .attr('for', clueIdStr);
   clueGroup.append(clueInput);
-  $('#loc-list').append(clueGroup).append($('<hr/>'));
+
+  var deleteBtn = $('<a></a>')
+    .addClass('btn delete')
+    .attr('idx', markers.length)
+    .text('Delete');
+
+  clueGroup.append(deleteBtn).append($('<hr/>'));
+
+  $('#loc-list').append(clueGroup);
   $('.loc').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     markers[idx].setLabel(this.value);
@@ -81,6 +89,29 @@ function addFormRow() {
     var idx = parseInt(this.getAttribute('idx'), 10);
     clues[idx] = this.value;
   });
+  $('.delete').click(function(e) {
+    var idx = parseInt(this.getAttribute('idx'), 10);
+    removeFormRow(idx);
+  });
+}
+
+//Remove a marker from the map and the array
+function removeMarker(idx) {
+  markers[idx].setMap(null);
+  markers[idx] = null;
+}
+
+//Set a clue to null in the array
+function removeClue(idx) {
+  clues[idx] = null;
+}
+
+//Remove a form section and its associated items from the arrays
+function removeFormRow(idx) {
+  $('[for="loc-' + idx + '"]').remove();
+  $('[for="clue-' + idx + '"]').remove();
+  removeMarker(idx);
+  removeClue(idx);
 }
 
 function addHeroFormRow() {
@@ -104,15 +135,22 @@ function addHeroFormRow() {
   });
 }
 
+//Check if something is not null
+function isNotNull(obj) {
+  return obj !== null;
+}
+
 //Function to package the locations into an array without the extra Google Maps marker data
 //Should be stringified and passed to the server
 function packageMarkers(arr) {
-  var locations = arr.map(function(marker, idx) {
+  var filteredLocations = arr.filter(isNotNull);
+  var filteredClues = clues.filter(isNotNull);
+  var locations = filtered.map(function(marker, idx) {
     var rObj = {};
     rObj.lat = marker.getPosition().lat();
     rObj.lng = marker.getPosition().lng();
     rObj.name = marker.label;
-    rObj.clue = clues[idx];
+    rObj.clue = filteredClues[idx];
     return rObj;
   });
   return locations;

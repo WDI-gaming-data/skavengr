@@ -59,14 +59,27 @@ html, body {
 		font-size: 14px;
 	}
 }
+
 #loc-list{
-	border: 1px solid grey;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: #ffdeb2;
 	margin-top: 10px;
 	width: 220px;
 	height: 400px;
 	overflow: auto;
 	padding: 10px;
 }
+
+
 #invite-heroes{
 	margin: 10px;
+}
+div .modal-header{
+	background-color: #960404;
+	text-align: center;
+	color: white;
+}
+div .modal-body{
+	background-color: #db984b;
 }

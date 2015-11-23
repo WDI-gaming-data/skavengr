@@ -7,7 +7,8 @@
 	<div class="well">		
 		<%= location.name %>
 		<%= location.clue %>
-		<p><span><%= location.lat %></span><span><%= location.lng %></span>
+		<p><span><%= location.lat %></span><span><%= location.lng %></span><br>
+		<%= link_to 'Remove', {:controller => 'quests', :action =>'remove_location', :location=>location.id }, method: :post %>
 	</div>
 <% end %>
 
@@ -15,7 +16,7 @@
 <% @quest.users.each do |user|  %>
 	<div class="well">
 		<%= user.email %>
-		<%= link_to 'Remove', {:controller => 'quests', :action =>'remove_user', :user=>user.id }  %>
+		<%= link_to 'Remove', {:controller => 'quests', :action =>'remove_user', :user=>user.id }, method: :post  %>
 	</div>
 <%end %>
 

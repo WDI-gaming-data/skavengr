@@ -17,12 +17,16 @@ class QuestsController < ApplicationController
     redirect_to edit_quest_path(quest)
   end
 
-  def remove_user
+  def add_location
+  end
+
+  def remove_location
     # render :json => params
-    quest = Quest.find(params[:id])
-    user = User.find(params[:user])
-    # render :json => user
-    quest.users.delete(user)
+    quest = Quest.find params[:id]
+    location = Location.find(params[:location])
+    # render:json => location
+    quest.locations.delete(location)
+    location.destroy
     redirect_to edit_quest_path(quest)
   end
 
@@ -38,6 +42,15 @@ class QuestsController < ApplicationController
       flash[:warning] =  'invalid user'
       redirect_to edit_quest_path(quest)
     end
+  end
+
+  def remove_user
+    # render :json => params
+    quest = Quest.find(params[:id])
+    user = User.find(params[:user])
+    # render :json => user
+    quest.users.delete(user)
+    redirect_to edit_quest_path(quest)
   end
 
   # Show route for players. Should only pass locations to the view if the player

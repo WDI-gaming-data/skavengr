@@ -138,12 +138,7 @@ $(function() {
     $('#quest_heroes').val(packagedHeroes);
   });
   $('#modal-locations').on('show.bs.modal', function () {
-    console.log('in the resize listener');
-    try {
-      google.maps.event.trigger(map, "resize");
-    } catch(e) {
-      console.log(e);
-    }
+    setTimeout(google.maps.event.trigger, 500, map, "resize");
   });
 });
 

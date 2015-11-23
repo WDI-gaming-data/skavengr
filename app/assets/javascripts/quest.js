@@ -71,7 +71,15 @@ function addFormRow() {
   clueGroup.append('<label>Clue</label>')
     .attr('for', clueIdStr);
   clueGroup.append(clueInput);
-  $('#loc-list').append(clueGroup).append($('<hr/>'));
+
+  var deleteBtn = $('<a></a>')
+    .addClass('btn delete')
+    .attr(idx, markers.length)
+    .text('Delete');
+
+  $('#loc-list').append(clueGroup)
+    .append(deleteBtn)
+    .append($('<hr/>'));
   $('.loc').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     markers[idx].setLabel(this.value);

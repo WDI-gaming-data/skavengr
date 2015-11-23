@@ -115,7 +115,8 @@ function packageMarkers(arr) {
 }
 
 $(function() {
-  $('#new-location').click(function() {
+  $('#new-location').click(function(e) {
+    e.preventDefault();
     addFormRow();
     markers.push(createMarker('test', map));
   });

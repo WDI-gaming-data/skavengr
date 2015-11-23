@@ -59,10 +59,12 @@ function monitorPosition(pos) {
     if(completed === true) {
       console.log('In the completed objective if statement');
       $.post('/quests/location', { location_id: location.id }, function(data) {
-        gon.completed_locations.push(location);
-        gon.remaining_locations.splice(idx, 1);
-        renderObjectives();
+
       }, 'json');
+      gon.completed_locations.push(location);
+      gon.remaining_locations.splice(idx, 1);
+      renderObjectives();
+      sweetAlert('Objective Completed: ' + location.name, 'Remaining objectives: ' + gon.remaining_locations.length, 'success');
     }
   });
 }
@@ -77,7 +79,7 @@ function renderObjectives() {
       .append($('<p></p>').text(item.clue))
     );
   });
-  locationsDiv.html('').append('<h2>Completed Objectives</h2>');
+  locationsDiv.append('<h2>Completed Objectives</h2>');
   gon.completed_locations.forEach(function(item) {
     locationsDiv.append(
       $('<div></div>').addClass('well')

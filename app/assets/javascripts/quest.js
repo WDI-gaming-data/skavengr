@@ -114,6 +114,11 @@ function removeFormRow(idx) {
   removeClue(idx);
 }
 
+function removeHeroFormRow(idx) {
+  $('[for="hero-' + idx + '"]').remove();
+  heroes[idx] = null;
+}
+
 function addHeroFormRow() {
   var idStr = 'hero-' + heroes.length;
   var nameInput = $('<input>').attr('type', 'text')
@@ -122,16 +127,28 @@ function addHeroFormRow() {
     .addClass('form-control')
     .attr('name', 'user[name]')
     .attr('id', idStr);
-  heroes.push('');
+  // heroes.push('');
   var nameGroup = $('<div></div>').addClass('form-group');
   nameGroup.append('<label>Hero\'s email!</label>')
     .attr('for', idStr);
   nameGroup.append(nameInput);
+
+  var deleteBtn = $('<a></a>')
+    .addClass('btn delete-hero')
+    .attr('idx', heroes.length)
+    .text('Remove');
+  nameGroup.append(deleteBtn);
+
   $('#hero-list').append(nameGroup);
+  heroes.push('');
   $('.hero').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     heroes[idx] = this.value;
     console.log(heroes, idx);
+  });
+  $('.delete-hero').click(function(e) {
+    var idx = parseInt(this.getAttribute('idx'), 10);
+    removeHeroFormRow(idx);
   });
 }
 
@@ -171,7 +188,7 @@ $(function() {
   $('.trigger-time').click(function() {
     packagedMarkers = packageMarkers(markers);
     packagedMarkersString = JSON.stringify(packagedMarkers);
-    packagedHeroes = JSON.stringify(heroes);
+    packagedHeroes = JSON.stringify(heroes.filter(isNotNull));
     $('#quest_locations').val(packagedMarkersString);
     $('#quest_heroes').val(packagedHeroes);
   });

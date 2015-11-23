@@ -8,17 +8,7 @@ h1{
 	margin-top: 0px;
 	padding-top: 20px;
 }
-// #makequest{
-// 	width: 50%;
-// 	margin-left: 25%;
-// 	background-color: #960404;
-// 	border: 2px solid white;
-// }
-// #makequest:hover{
-// 	background-color: white;
-// 	color: #960404;
-// 	border-color:  #960404;
-// }
+
 @media(min-width: 600px){
 	#makequest{
 		width: 30%;
@@ -37,8 +27,21 @@ h1{
 		text-align: center;
 	}
 }
-
+.quest-label{
+	color: white;
+	text-align: center;
+}
 #quest-container{
+	background: #DB984B;
+	height: 70%;
+	width: 80%;
+	margin-left: 10%;
+	overflow: auto;
+	border-radius: 10px;
+	margin-top: 20px;
+	border: 3px solid white;
+}
+#participating-quest-container{
 	background: #960404;
 	height: 70%;
 	width: 80%;

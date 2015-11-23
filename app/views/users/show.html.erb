@@ -5,18 +5,18 @@
 
 	<!-- Lists all owned quests -->
 	<div id="participating-quest-container">
-		<h2>Accepted quests</h2>
+		<h2 class="quest-label">Quests you participate in</h2>
 		<% @player_quests.each do |q| %>
 		<div class="container questdiv">
 			<h4><%=  q.name %></h4>
 			<p><%= q.start_date %></p>
 			<p><%= q.end_date %></p>
 		</div>	
+		<% end %>
 	</div>
-	<% end %>
 <!-- Lists all quests the user has participated in -->
 	<div id="quest-container">
-		<h2>Owned quests</h2>
+		<h2  class="quest-label">Quests you created</h2>
 		<% @owner_quests.each do |q| %>
 		<div class="container questdiv">
 			<h4><%=  q.name %></h4>

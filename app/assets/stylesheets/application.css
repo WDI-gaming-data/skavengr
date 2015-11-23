@@ -24,20 +24,23 @@ body{
 	border-radius: 0px;
 	margin-bottom: 0px;
 }
+#nav-links-right{
+	list-style-type: none;
+}
+#nav-links-right li{
+	display: inline;
+	padding-left: 20px;
+}
 #home{
 	margin-top: 50px;
 	color: white;
 	float: left;
 }
-#login{
+#login, #username, #quest-manager{
 	margin-top: 50px;
 	color: white;
 }
-#username{
-	margin-top: 50px;
-	color: white;
-}
-#username:hover{
+#username:hover, #quest-manager:hover{
 	text-decoration: none;
 }
 #navright{

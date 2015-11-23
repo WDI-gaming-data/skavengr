@@ -1,0 +1,20 @@
+
+<div class="modal fade" id="add-heroes">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Add a hero!</h4>
+			</div>
+			<div class="modal-body">
+				<%= bootstrap_form_for :user, url: "/quests/#{@quest.id}/add_user" do |f| %>
+				<%= f.text_field :email %>
+		
+			</div>
+			<div class="modal-footer">
+				<%= f.submit class: 'btn' %>
+				<%end  %>
+			</div>
+		</div>
+	</div>
+</div>

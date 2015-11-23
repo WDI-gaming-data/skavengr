@@ -1,10 +1,10 @@
 
-
-<%= bootstrap_form_for @user do |f|%>
-	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com'%>
-				<%= f.text_field :name, placeholder: '' %>
-	      		<%= f.text_field :phone, placeholder: '' %>
-				<%= f.password_field :password, placeholder: '********' %>
-
-				<%= f.submit 'Update Profile'%>
-<% end %>
+<div class="container">
+<h3 class="text-center">Update your information</h3>
+<p class="text-center">Account Email: <%= @user.email%></p>
+	<%= bootstrap_form_for :user, :url => url_for(:controller => 'users', :action => 'update')do |f|%>
+		<%= f.text_field :name, placeholder: '' %>
+		<%= f.text_field :phone, placeholder: '' %>
+		<%= f.submit 'Update Profile'%>
+	<% end %>
+</div>

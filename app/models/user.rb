@@ -2,12 +2,14 @@ class User < ActiveRecord::Base
 	validates :email,
 	presence: true,
 	email: true,
-	uniqueness: {case_sensitive: false}
+	uniqueness: {case_sensitive: false},
+	on: :create
 
 	validates :password,
 	presence: true,
 	confirmation: true,
-	length: {minimum: 8}
+	length: {minimum: 8},
+	on: :create
 
 	validates :name,
 	presence: true

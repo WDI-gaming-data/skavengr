@@ -62,6 +62,18 @@ class QuestsController < ApplicationController
   def new
   end
 
+  def destroy
+    # render :json => params
+    quest = Quest.find params[:id]
+    if quest.owner_id = @current_user.id
+      quest.locations.each do |location|
+        quest.locations.find(location.id).destroy
+      end
+      quest.destroy
+      redirect_to user_path(@current_user)
+    end
+  end
+
   private
 
   def quest_params

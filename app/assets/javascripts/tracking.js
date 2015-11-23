@@ -57,6 +57,7 @@ function monitorPosition(pos) {
       50
     );
     if(completed === true) {
+      console.log('In the completed objective if statement');
       $.post('/quests/location', { location_id: location.id }, function(data) {
         gon.completed_locations.push(location);
         gon.remaining_locations.splice(idx, 1);

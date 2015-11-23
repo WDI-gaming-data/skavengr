@@ -77,9 +77,9 @@ function addFormRow() {
     .attr('idx', markers.length)
     .text('Delete');
 
-  $('#loc-list').append(clueGroup)
-    .append(deleteBtn)
-    .append($('<hr/>'));
+  clueGroup.append(deleteBtn).append($('<hr/>'));
+
+  $('#loc-list').append(clueGroup);
   $('.loc').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     markers[idx].setLabel(this.value);
@@ -108,7 +108,8 @@ function removeClue(idx) {
 
 //Remove a form section and its associated items from the arrays
 function removeFormRow(idx) {
-  $('[idx="' + idx + '"]').parent().remove();
+  $('[for="loc-' + idx + '"]').remove();
+  $('[for="clue-' + idx + '"]').remove();
   removeMarker(idx);
   removeClue(idx);
 }

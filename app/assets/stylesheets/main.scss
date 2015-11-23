@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#header{
+#header, #header2, #header3{
 	position: absolute;
 	width: 40%;
 	margin-left: 30%;
@@ -11,38 +11,38 @@
 	font-size: 50px;
 	color: white;
 }
-#p1{
+#p1, #p2, #p3{
 	position: absolute;
 	top: 200px;
 	left: 50px;
 	color: white;
 }
 
-#header2{
-	position: absolute;
-	width: 40%;
-	margin-left: 30%;
-	text-align: center;
-	font-size: 50px;
-	color: white;
-}
-#p2{
-	position: absolute;
-	top: 200px;
-	left: 50px;
-	color: white;
-}
-#header3{
-	position: absolute;
-	width: 40%;
-	margin-left: 30%;
-	text-align: center;
-	font-size: 50px;
-	color: white;
-}
-#p3{
-	position: absolute;
-	top: 200px;
-	left: 50px;
-	color: white;
-}
+// #header2{
+// 	position: absolute;
+// 	width: 40%;
+// 	margin-left: 30%;
+// 	text-align: center;
+// 	font-size: 50px;
+// 	color: white;
+// }
+// #p2{
+// 	position: absolute;
+// 	top: 200px;
+// 	left: 50px;
+// 	color: white;
+// }
+// #header3{
+// 	position: absolute;
+// 	width: 40%;
+// 	margin-left: 30%;
+// 	text-align: center;
+// 	font-size: 50px;
+// 	color: white;
+// }
+// #p3{
+// 	position: absolute;
+// 	top: 200px;
+// 	left: 50px;
+// 	color: white;
+// }

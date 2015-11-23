@@ -59,10 +59,11 @@ function monitorPosition(pos) {
     if(completed === true) {
       console.log('In the completed objective if statement');
       $.post('/quests/location', { location_id: location.id }, function(data) {
-        gon.completed_locations.push(location);
-        gon.remaining_locations.splice(idx, 1);
-        renderObjectives();
+
       }, 'json');
+      gon.completed_locations.push(location);
+      gon.remaining_locations.splice(idx, 1);
+      renderObjectives();
       sweetAlert('Objective Completed: ' + location.name, gon.remaining_locations.length + ' objectives remaining', 'success');
     }
   });

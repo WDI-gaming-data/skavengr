@@ -63,7 +63,7 @@ function monitorPosition(pos) {
         gon.remaining_locations.splice(idx, 1);
         renderObjectives();
       }, 'json');
-      sweetAlert('Objective Completed: ' + location.name, gon.remaining_locations.length + 'objectives remaining', 'success');
+      sweetAlert('Objective Completed: ' + location.name, gon.remaining_locations.length + ' objectives remaining', 'success');
     }
   });
 }

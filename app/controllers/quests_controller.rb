@@ -38,6 +38,10 @@ class QuestsController < ApplicationController
   end
 
   def complete_location
+    location = Location.find(params[:location_id])
+    if !location.nil?
+      joinObj = LocationsUsers.find_or_create_by(:user => @current_user, :location => location)
+    end
     User.find(@current_user.id).locations << Location.find(params[:location_id])
   end
 

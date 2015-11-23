@@ -23,10 +23,8 @@ class UsersController < ApplicationController
 
   def show
   	@current_user ||= User.find_by_id(session[:user_id])
-  	@quests = Quest.where(owner_id: @current_user.id )
-  	puts "******"
-  	puts @quests
-  	puts "******"
+  	@owner_quests = Quest.where(owner_id: @current_user.id )
+    @player_quests = @current_user.quests
   end
 
   def edit

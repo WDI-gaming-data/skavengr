@@ -1,19 +1,28 @@
 <div id="userbackground">
-<h1>Welcome <%= @current_user.name %></h1>
-<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-primary", id: "makequest" %>
+	<h1>Welcome <%= @current_user.name %></h1>
+	<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-primary", id: "makequest" %>
 
-<!-- Lists all quests the user has participated in -->
-<div id="quest-container">
-<% @quests.each do |q| %>
-	<div class="container questdiv">
-		<h4><%=  q.name %></h4>
-		<p><%= q.start_date %></p>
-		<p><%= q.end_date %></p>
-		<div>
-			
-		</div>
+
+	<!-- Lists all owned quests -->
+	<div id="participating-quest-container">
+		<h2>Accepted quests</h2>
+		<% @player_quests.each do |q| %>
+		<div class="container questdiv">
+			<h4><%=  q.name %></h4>
+			<p><%= q.start_date %></p>
+			<p><%= q.end_date %></p>
+		</div>	
 	</div>
-<% end %>
-</div>
-
+	<% end %>
+<!-- Lists all quests the user has participated in -->
+	<div id="quest-container">
+		<h2>Owned quests</h2>
+		<% @owner_quests.each do |q| %>
+		<div class="container questdiv">
+			<h4><%=  q.name %></h4>
+			<p><%= q.start_date %></p>
+			<p><%= q.end_date %></p>
+		</div>	
+		<% end %>
+	</div>
 </div>

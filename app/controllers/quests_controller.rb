@@ -8,6 +8,9 @@ class QuestsController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
   # Show route for players. Should only pass locations to the view if the player
   # hasn't already completed them. The front-end JS can then track if the user gets
   # close enough to complete them.

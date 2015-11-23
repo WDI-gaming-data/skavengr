@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 	before_action :is_authenticated?, only: [:show]
 
   def create
-  	# render :json => params
   	User.create signup_params
 
   	user = User.authenticate signup_params['email'], signup_params['password']
@@ -28,7 +27,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @current_user ||= User.find_by_id(session[:user_id])
     @user = User.find_by_id(session[:user_id])
+  end
+
+  def update
+    u = User.find params[:id]
+    u.update(name: params[:user]['name'], phone: params[:user]['phone'])
+    redirect_to user_path(u)
   end
 
   def delete
@@ -39,4 +45,5 @@ class UsersController < ApplicationController
   def signup_params
   	params.require(:users).permit(:email, :name, :password, :phone)
   end
+
 end

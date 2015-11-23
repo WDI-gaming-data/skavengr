@@ -1,4 +1,5 @@
 var map = null;
+var mapReady = false;
 
 var markers = [];
 var clues = [];
@@ -15,6 +16,9 @@ function initNewQuestMap() {
         lng: position.coords.longitude
       },
       zoom: 14
+    });
+    google.maps.event.addListenerOnce(map, 'idle', function() {
+      mapReady = true;
     });
   });
 }
@@ -117,8 +121,10 @@ function packageMarkers(arr) {
 $(function() {
   $('#new-location').click(function(e) {
     e.preventDefault();
-    addFormRow();
-    markers.push(createMarker('test', map));
+    if(mapReady) {
+      addFormRow();
+      markers.push(createMarker('test', map));
+    }
   });
   $('#new-hero').click(function(e){
     e.preventDefault();

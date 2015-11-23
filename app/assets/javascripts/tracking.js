@@ -57,6 +57,7 @@ function monitorPosition(pos) {
       $.post('/quests/location', { location_id: location.id }, function(data) {
         gon.completed_locations.push(location);
         gon.remaining_locations.splice(idx, 1);
+        renderObjectives();
       }, 'json');
     }
   });

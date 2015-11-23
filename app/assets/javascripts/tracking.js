@@ -45,7 +45,7 @@ function checkDistance(lat_a, lng_a, lat_b, lng_b, distanceThreshold) {
 
 function monitorPosition(pos) {
   playerCircle.center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-  gon.remaining_locations.forEach(function(location) {
+  gon.remaining_locations.forEach(function(location, idx) {
     var completed = checkDistance(
       pos.coords.latitude,
       pos.coords.longitude,
@@ -54,8 +54,32 @@ function monitorPosition(pos) {
       50
     );
     if(completed === true) {
-      $.post('/quests/location', {location_id: location.id}, null, 'json');
+      $.post('/quests/location', { location_id: location.id }, function(data) {
+        gon.completed_locations.push(location);
+        gon.remaining_locations.splice(idx, 1);
+        renderObjectives();
+      }, 'json');
     }
+  });
+}
+
+function renderObjectives() {
+  var locationsDiv = $('.locations');
+  locationsDiv.html('').append('<h2>Current Objectives</h2>');
+  gon.remaining_locations.forEach(function(item) {
+    locationsDiv.append(
+      $('<div></div>').addClass('well')
+      .append($('<h3></h3>').text(item.name))
+      .append($('<p></p>').text(item.clue))
+    );
+  });
+  locationsDiv.html('').append('<h2>Completed Objectives</h2>');
+  gon.completed_locations.forEach(function(item) {
+    locationsDiv.append(
+      $('<div></div>').addClass('well')
+      .append($('<h3></h3>').text(item.name))
+      .append($('<p></p>').text(item.clue))
+    );
   });
 }
 

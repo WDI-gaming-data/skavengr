@@ -1,0 +1,10 @@
+
+
+<%= bootstrap_form_for @user do |f|%>
+	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com'%>
+				<%= f.text_field :name, placeholder: '' %>
+	      		<%= f.text_field :phone, placeholder: '' %>
+				<%= f.password_field :password, placeholder: '********' %>
+
+				<%= f.submit 'Update Profile'%>
+<% end %>

@@ -1,0 +1,24 @@
+<div id="loginmodal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Login modal content-->
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        	<h4 class="modal-title">Login</h4>
+	      	</div>
+	      	<div class="modal-body">
+	      	<%= bootstrap_form_for :user, :url => url_for(:controller => 'sessions', :action => 'create') do |f|%>
+	      		<%= f.text_field :email, placeholder: 'generic.email@gmail.com'%>
+				<%= f.password_field :password, placeholder: '********' %>
+
+				<%= f.submit 'Login'%>
+	      	<% end %>
+	        	<p class="centertext">Don't have an account? <a data-toggle="modal" data-target="#signupmodal" data-dismiss="modal">Sign up</a></p>
+	      	</div>
+	    </div>
+
+	    <!-- Sign up -->
+
+	  </div>
+	</div>

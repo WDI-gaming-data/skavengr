@@ -4,6 +4,9 @@
 
 h1{
 	text-align: center;
+	color: white;
+	margin-top: 0px;
+	padding-top: 20px;
 }
 #makequest{
 	width: 50%;
@@ -16,14 +19,30 @@ h1{
 	}
 }
 
-
 .questdiv{
+	color: white;
 	margin-top: 20px;
-	border: 1px solid black;
+	border: 1px solid white;
 	height: 200px;
 	width: 80%;
 	
 	h4{
 		text-align: center;
 	}
+}
+
+#quest-container{
+	background: #960404;
+	height: 70%;
+	width: 80%;
+	margin-left: 10%;
+	overflow: auto;
+	border-radius: 20px;
+	margin-top: 20px;
+}
+
+#userbackground{
+	width: 100%;
+	height: 100%;
+	background-image: url("oldmap.jpg");
 }

@@ -14,7 +14,7 @@
 //= require globals
 //= require map
 //= require quest
-//= require turbolinks
+
 //= require_tree .
 
 //$(document).ready(function(){

@@ -115,15 +115,14 @@ function packageMarkers(arr) {
 }
 
 $(function() {
-  $('#new-location').click(function(e) {
-    e.preventDefault();
+  $('#new-location').click(function() {
     addFormRow();
     markers.push(createMarker('test', map));
   });
   $('#new-hero').click(function(e){
     e.preventDefault();
     addHeroFormRow();
-  })
+  });
   $('.trigger-time').click(function() {
     packagedMarkers = packageMarkers(markers);
     packagedMarkersString = JSON.stringify(packagedMarkers);

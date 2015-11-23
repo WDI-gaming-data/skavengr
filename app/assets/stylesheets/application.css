@@ -18,7 +18,6 @@ body{
 	font-family: 'Black Ops One';
 }
 .navbar{
-	height: 100px;
 	background-color: #960404;
 	border: 0px solid #960404;
 	border-radius: 0px;
@@ -35,10 +34,12 @@ body{
 	margin-top: 50px;
 	color: white;
 	float: left;
+	font-size: 14px;
 }
 #login, #username, #quest-manager{
 	margin-top: 50px;
 	color: white;
+	font-size: 10px;
 }
 #username:hover, #quest-manager:hover{
 	text-decoration: none;
@@ -70,4 +71,38 @@ img{
 	border: 2px solid white;
 	color: white;
 	outline: none;
+}
+.vulture{
+		margin-top: 40px;
+		height: 50px;
+		width: 50px;
+	}
+@media(min-width: 500px){
+	.vulture{
+		margin-top: 20px;
+		height: 75px;
+		width: 75px;
+	}
+	#home{
+		font-size: 20px;
+	}
+	#login, #username, #quest-manager{
+		margin-top: 50px;
+		color: white;
+		font-size: 14px;
+	}
+	
+}
+@media(min-width: 750px ){
+	.vulture{
+		margin-top: 0px;
+		height: 100px;
+		width: 100px;
+	}
+	#home{
+		font-size: 30px;
+	}
+	#login, #username, #quest-manager{
+		font-size: 20px;
+	}
 }

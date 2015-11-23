@@ -74,7 +74,7 @@ function addFormRow() {
 
   var deleteBtn = $('<a></a>')
     .addClass('btn delete')
-    .attr(idx, markers.length)
+    .attr('idx', markers.length)
     .text('Delete');
 
   $('#loc-list').append(clueGroup)
@@ -88,6 +88,10 @@ function addFormRow() {
   $('.clue').keyup(function(e) {
     var idx = parseInt(this.getAttribute('idx'), 10);
     clues[idx] = this.value;
+  });
+  $('.delete').click(function(e) {
+    var idx = parseInt(this.getAttribute('idx'), 10);
+    removeFormRow(idx);
   });
 }
 

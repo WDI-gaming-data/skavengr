@@ -2,4 +2,18 @@
 <%= render "partials/new_quest_invite" %>
 <%= render "partials/new_quest_times" %>
 
-<a class="btn btn-primary" id="configure" data-toggle="modal" href='#modal-locations'>Configure Quest</a>
+<h1 id="newquest-header">Create a new Quest in just 3 steps:</h1>
+	<div id="leftwell" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<h4 class="instruction">Choose the destinations</h4>
+			<%= image_tag('map1.png') %>
+		</div>
+	<div id="middlewell" class=" col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<h4 class="instruction">Write clues or upload photos</h4>
+		<%= image_tag('map1.png') %>
+		</div>
+	<div id="rightwell" class=" col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<h4 class="instruction">Invite your friends!</h4>
+		<%= image_tag('map1.png') %>
+		</div>
+<a class="btn btn-primary" id="configure" data-toggle="modal" href='#modal-locations'>Create a new Quest</a>
+

@@ -1,4 +1,5 @@
 var map = null;
+var mapReady = false;
 
 var markers = [];
 var clues = [];
@@ -15,6 +16,9 @@ function initNewQuestMap() {
         lng: position.coords.longitude
       },
       zoom: 14
+    });
+    google.maps.event.addListenerOnce(map, 'idle', function() {
+      mapReady = true;
     });
   });
 }
@@ -117,8 +121,10 @@ function packageMarkers(arr) {
 $(function() {
   $('#new-location').click(function(e) {
     e.preventDefault();
-    addFormRow();
-    markers.push(createMarker('test', map));
+    if(mapReady) {
+      addFormRow();
+      markers.push(createMarker('test', map));
+    }
   });
   $('#new-hero').click(function(e){
     e.preventDefault();
@@ -132,12 +138,7 @@ $(function() {
     $('#quest_heroes').val(packagedHeroes);
   });
   $('#modal-locations').on('show.bs.modal', function () {
-    console.log('in the resize listener');
-    try {
-      google.maps.event.trigger(map, "resize");
-    } catch(e) {
-      console.log(e);
-    }
+    setTimeout(google.maps.event.trigger, 500, map, "resize");
   });
 });
 

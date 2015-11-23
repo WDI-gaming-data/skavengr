@@ -10,6 +10,9 @@ function initPlayerMap() {
       },
       zoom: 18
     });
+    google.maps.event.addListenerOnce(map, 'idle', function() {
+      mapReady = true;
+    });
     playerCircle = new google.maps.Circle({
       strokeColor: '#ffffff',
       strokeOpacity: 1,

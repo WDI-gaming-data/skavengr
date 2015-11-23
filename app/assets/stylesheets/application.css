@@ -20,7 +20,7 @@ body{
 }
 .navbar{
 	background-color: #960404;
-	border: 0px solid #960404;
+	border-bottom: 4px solid black;
 	border-radius: 0px;
 	margin-bottom: 0px;
 }

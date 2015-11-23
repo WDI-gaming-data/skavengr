@@ -24,13 +24,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'gon'
-
+gem 'sweetalert-rails'
 gem 'bootstrap_form'
 gem 'validates_timeliness'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'email_validator'
 gem 'validates_phone_number'
+gem 'twilio-ruby', '~> 4.2.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

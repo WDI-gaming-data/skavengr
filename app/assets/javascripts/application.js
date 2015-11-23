@@ -11,15 +11,8 @@
 // about supported directives.
 //
 //= require jquery_ujs
+//= require sweet-alert
 //= require globals
 //= require map
 //= require quest
-
 //= require_tree .
-
-//$(document).ready(function(){
-
-// 	$('.carousel').carousel({
-// 		interval: 500
-// 	})
-// });

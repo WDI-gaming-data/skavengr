@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require sweet-alert
  *= require_tree .
  *= require_self
  */
@@ -49,7 +50,7 @@ body{
 	list-style-type: none;
 }
 .centertext{
-	text-align: center; 
+	text-align: center;
 }
 img{
 	width: 100%;

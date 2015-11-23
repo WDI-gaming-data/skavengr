@@ -47,16 +47,21 @@ class QuestsController < ApplicationController
     locations = JSON.parse quest_parameters[:locations]
     heroes = JSON.parse quest_parameters[:heroes]
   	quest = Quest.create(:name => quest_parameters['name'], :owner_id=>@current_user.id, :start_date=>quest_parameters['start'], :end_date=>quest_params['end'])
-  	locations.each do |location|
-      quest.locations.create name: location['name'], clue: location['clue'], lat: location['lat'], lng: location['lng'];
-    end
-    heroes.each do |hero|
-      user = User.find_by email: hero
-      if user
-        user.quests << quest
+    if quest.save
+    	locations.each do |location|
+        quest.locations.create name: location['name'], clue: location['clue'], lat: location['lat'], lng: location['lng'];
       end
+      heroes.each do |hero|
+        user = User.find_by email: hero
+        if user
+          user.quests << quest
+        end
+      end
+      redirect_to user_path(@current_user)
+    else
+      flash[:danger] = "Quest creation failed. please try again"
+      redirect_to new_quest_path
     end
-    redirect_to root_path
   end
 
   def new

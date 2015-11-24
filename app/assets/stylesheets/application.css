@@ -15,8 +15,14 @@
  *= require_self
  */
 
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+
+
 body{
-	font-family: 'Black Ops One';
+	font-family: 'Cabin Condensed';
 }
 .navbar{
 	background: linear-gradient(90deg, #960404, #8E2800, transparent 50%),

@@ -13,11 +13,11 @@
   <div class="well">
     <h4>
       <% if idx == 0%>
-        <i class="fa fa-border fa-2x gold fa-trophy"></i>
+        <i class="fa fa-2x gold fa-trophy"></i>
       <% elsif idx == 1 %>
-        <i class="fa fa-border fa-2x silver fa-trophy"></i>
+        <i class="fa fa-2x silver fa-trophy"></i>
       <% elsif idx == 2 %>
-        <i class="fa fa-border fa-2x bronze fa-trophy"></i>
+        <i class="fa fa-2x bronze fa-trophy"></i>
       <% end %>
       <%= player["name"] %>
     </h4>
@@ -26,4 +26,6 @@
     <% else %>
       <p>Did not finish.</p>
     <% end %>
+	  </div>
+	<% end %>
 </div>

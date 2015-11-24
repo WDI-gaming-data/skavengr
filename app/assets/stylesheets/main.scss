@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a {
+	color: #960404
+}
+
+span {
+	padding: 5px;
+}
 
 .header{
 	position: absolute;
@@ -33,7 +40,6 @@
 
 #about-background{
 	background-color: #5b9bea;
-	height: 1000px;
 }
 
 .picholder{

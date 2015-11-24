@@ -25,7 +25,12 @@ span {
 
 	}
 }
-
+#about{
+	font-size: 3vw;
+}
+ul li{
+	font-size: 2vw;
+}
 #blackvulture{
 	width: 70px;
 	height: 70px;
@@ -35,21 +40,22 @@ span {
 }
 
 #about-background{
-	background-color: #047B93;
+	background-color: white;
 }
 
 .picholder{
 	.midholder{
-		padding: 40px;
+		padding: 10%;
 		img{
 			border: 4px solid white;
 		}
 	}
 }
 .bio{
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 10%;
+	padding-right: 10%;
 	text-align: center;
+	font-size: 2vw;
 }
 #imglink-div{
 	text-align: center;

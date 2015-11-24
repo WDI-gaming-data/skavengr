@@ -5,17 +5,17 @@ class UsersController < ApplicationController
   def create
   	User.create signup_params
 
-    # Twilio welcome text
-    number_to_send_to = signup_params['phone']
-    twilio_phone_number = '9784671378'
+    # Twilio welcome text -- not using
+    # number_to_send_to = signup_params['phone']
+    # twilio_phone_number = '9784671378'
 
   
 
-    @@twilio_client.account.sms.messages.create(
-      :from => "+1#{twilio_phone_number}",
-      :to => number_to_send_to,
-      :body => "Thank you for signing up to Skavengr!"
-    )
+    # @@twilio_client.account.sms.messages.create(
+    #   :from => "+1#{twilio_phone_number}",
+    #   :to => number_to_send_to,
+    #   :body => "Thank you for signing up to Skavengr!"
+    # )
 
     # authentication
   	user = User.authenticate signup_params['email'], signup_params['password']

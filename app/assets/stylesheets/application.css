@@ -28,7 +28,7 @@ body{
 	background: linear-gradient(90deg, #960404, #8E2800, transparent 50%),
 				 #8E2800  url('Jawaz.png') no-repeat center;
 	background-size: 600px;
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid white;
 	border-radius: 0px;
 	margin-bottom: 0px;
 }

@@ -5,11 +5,11 @@ html, body {
   height: 100%;
 }
 
-#questbackground{
-	width: 100%;
-	height: 100%;
-	background-image: url("oldmap.jpg");
-}
+// #questbackground{
+// 	width: 100%;
+
+// 	background-image: url("oldmap.jpg");
+// }
 #questshow{
 	width: 100%;
 	background-image: url("oldmap.jpg");
@@ -20,8 +20,8 @@ html, body {
 	background-image: url("oldmap.jpg");
 }
 #map {
-  width: 70%;
-  margin-left: 15%;
+  width: 100%;
+  margin-left: 0%;
   height: 80vh;
   border: 3px solid white;
 }
@@ -30,9 +30,10 @@ html, body {
 }
 #newquest-header{
 	font-size: 16px;
+	color: black;
 }
 .instruction{
-	color: white;
+	color: black;
 	font-size: 10px;
 	text-align: center;
 }
@@ -78,7 +79,7 @@ h3{
 	border-radius: 5px;
 	background-color: #ffdeb2;
 	margin-top: 10px;
-	width: 220px;
+	width: 100%;
 	height: 400px;
 	overflow: auto;
 	padding: 10px;

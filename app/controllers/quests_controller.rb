@@ -95,10 +95,13 @@ class QuestsController < ApplicationController
         end
       end
       if completed_objectives.length == quest_objectives.length
-        redirect_to
+        redirect_to "/quests/complete"
       end
     end
     # User.find(@current_user.id).locations << Location.find(params[:location_id])
+  end
+
+  def complete
   end
 
   def create

@@ -18,6 +18,10 @@ class QuestsController < ApplicationController
   end
 
   def add_location
+    # render :json => params
+    quest = Quest.find params[:id]
+    quest.locations.create name: params[:location]['name'], clue: params[:location]['clue'], lat: params[:location]['lat'], lng: params[:location]['lng'] 
+    redirect_to edit_quest_path(quest)
   end
 
   def remove_location

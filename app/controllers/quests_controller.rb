@@ -1,5 +1,5 @@
 class QuestsController < ApplicationController
-  
+
 	before_action :is_authenticated?
   before_action :set_time_zone
 
@@ -158,12 +158,15 @@ class QuestsController < ApplicationController
         completions = []
         completed_objectives.each do |item|
           if(LocationsUsers.exists?(location_id: item.id))
-            completions << item
+            completions << LocationsUsers.where(location_id: item.id)
           end
         end
         for c in completions do
-          if(c.created_at > @player_json[i][:finished])
-            @player_json[i][:finished] = c.created_at
+          puts "************************************"
+          puts c.first.created_at
+          puts "************************************"
+          if(c.first.created_at > @player_json[i][:finished])
+            @player_json[i][:finished] = c.first.created_at
           end
         end
       end

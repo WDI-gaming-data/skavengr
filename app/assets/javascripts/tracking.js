@@ -69,7 +69,7 @@ function monitorPosition(pos) {
         text: 'Remaining objectives: ' + gon.remaining_locations.length,
         type: 'success'
       }, function() {
-        window.location = 'http://skavengr.herokuapp.com/quests/' + location.quest_id + '/complete';
+        window.location = '/quests/' + location.quest_id + '/complete';
       });
     }
   });

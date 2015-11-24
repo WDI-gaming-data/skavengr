@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_action :is_authenticated?, only: [:show]
+	before_action :is_authenticated?, except: [:create, :new]
 
   def create
   	User.create signup_params
@@ -34,9 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@current_user ||= User.find_by_id(session[:user_id])
-  	@owner_quests = Quest.where(owner_id: @current_user.id )
-    @player_quests = @current_user.quests
+  	redirect_to quests_path
   end
 
   def edit

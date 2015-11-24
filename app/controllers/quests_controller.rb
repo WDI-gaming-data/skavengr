@@ -3,15 +3,8 @@ class QuestsController < ApplicationController
 	before_action :is_authenticated?
 
   def index
-    date = DateTime.current.utc
-    quest = Quest.last
-    render :json => {
-      :now => date, 
-      :start=> quest.start_date,
-      :end => quest.end_date, 
-      :started? => quest.start_date < date,
-      :active? => quest.end_date > date
-    }
+    @owner_quests = Quest.where(owner_id: @current_user.id )
+    @player_quests = @current_user.quests
   end
 
   def edit
@@ -94,7 +87,7 @@ class QuestsController < ApplicationController
     else
       gon.track = false
       flash[:danger] = "You are not a member of this quest! Please contact the quest owner for an invite."
-      redirect_to root_path
+      redirect_to quests_path
     end
   end
 

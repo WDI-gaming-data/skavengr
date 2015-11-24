@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :quests
 
   root 'main#index'
+  get 'about' => 'main#about'
 
   post 'users' => 'users#create'
 

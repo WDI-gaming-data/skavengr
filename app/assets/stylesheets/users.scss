@@ -17,6 +17,19 @@ h1{
 }
 
 .questdiv{
+	background: #DB984B;
+	color: white;
+	margin-top: 20px;
+	border: 1px solid white;
+	height: 200px;
+	width: 80%;
+	
+	h4{
+		text-align: center;
+	}
+}
+.questdiv-owned{
+	background: #960404;
 	color: white;
 	margin-top: 20px;
 	border: 1px solid white;
@@ -56,4 +69,7 @@ h1{
 	width: 100%;
 	height: 1800px;
 	background-image: url("oldmap.jpg");
+}
+h6{
+	text-decoration: underline;
 }

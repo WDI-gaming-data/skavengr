@@ -32,6 +32,8 @@ body{
 	padding-left: 20px;
 }
 #home{
+	padding-left: 5px;
+	padding-right: 5px;
 	margin-top: 50px;
 	color: white;
 	float: left;
@@ -107,4 +109,13 @@ img{
 	#login, #username, #quest-manager{
 		font-size: 20px;
 	}
+}
+.modal-link{
+	color: #960404;
+}
+.modal-link:hover{
+	color: #960404;
+}
+.alert{
+	margin: 0px;
 }

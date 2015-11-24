@@ -98,7 +98,7 @@ class QuestsController < ApplicationController
         puts '******************'
         puts 'in the quest complete if statement'
         puts '******************'
-        redirect_to quests_complete_route
+        redirect_to quests_complete_path
       end
     end
     # User.find(@current_user.id).locations << Location.find(params[:location_id])

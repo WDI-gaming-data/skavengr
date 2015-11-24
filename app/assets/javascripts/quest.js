@@ -23,6 +23,35 @@ function initNewQuestMap() {
   });
 }
 
+function initNewLocationMap() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      },
+      zoom: 14
+    });
+    google.maps.event.addListenerOnce(map, 'idle', function() {
+      mapReady = true;
+    });
+    var locationMarker = new google.maps.Marker({
+      position: map.getCenter(),
+      map: map,
+      label: name,
+      draggable:true,
+      animation: google.maps.Animation.DROP
+    });
+    locationMarker.addListener('dragend', function() {
+      var pos = locationMarker.getPosition();
+      console.log(pos.lat(), pos.lng());
+      $('#location_lat').val(pos.lat());
+      $('#location_lng').val(pos.lng());
+
+    });
+  });
+}
+
 //Returns an object with a name and the associated marker
 function createMarker(name, map) {
   var marker = new google.maps.Marker({

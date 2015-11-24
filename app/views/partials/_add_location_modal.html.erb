@@ -1,0 +1,31 @@
+
+<div class="modal fade" id="add-location">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+          			<div class="col-sm-8 col-md-8 col-lg-8">
+            			<div id="map"></div>
+          			</div>
+          			<div class="col-sm-4 col-md-4 col-lg-4">
+          				<%= bootstrap_form_for :location, url:"/quests/#{@quest.id}/add_location" do |f| %>
+	          				<%= f.hidden_field :lat %>
+	          				<%= f.hidden_field :lng %>
+	          				<%= f.text_field :name %>
+	          				<%= f.text_area :clue %>
+	          				<%= f.submit 'Add location!', class: 'btn' %>
+          				<%end  %>
+          			</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzi-6l9dHiM-QmEvZ9aDD44hHrbv4ySOc&callback=initNewLocationMap"
+              async defer></script>

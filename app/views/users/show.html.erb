@@ -23,6 +23,7 @@
 			<p><%= q.start_date %></p>
 			<p><%= q.end_date %></p>
 			<%= link_to 'Delete this quest', quest_path(q), class: 'btn', method: :delete %>
+			<%= link_to 'Edit this quest', edit_quest_path(q), class: 'btn' %>
 		</div>	
 		<% end %>
 	</div>

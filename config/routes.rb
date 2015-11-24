@@ -13,6 +13,14 @@ Rails.application.routes.draw do
 
   post 'quests/location' => 'quests#complete_location'
 
+  post 'quests/:id/remove_user' => 'quests#remove_user'
+
+  post 'quests/:id/add_user' => 'quests#add_user'
+
+  post 'quests/:id/remove_location' => 'quests#remove_location'
+
+  post 'quests/:id/add_location' => 'quests#add_location'
+
   # get 'users/new'
   get 'users/:id/edit' => 'users#edit'
 

@@ -95,10 +95,8 @@ class QuestsController < ApplicationController
         end
       end
       if completed_objectives.length == quest_objectives.length
-        puts '******************'
-        puts 'in the quest complete if statement'
-        puts '******************'
-        redirect_to quests_complete_path
+        render :json => location
+        # redirect_to quests_complete_path
       end
     end
     # User.find(@current_user.id).locations << Location.find(params[:location_id])

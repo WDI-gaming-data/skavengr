@@ -87,17 +87,17 @@ class QuestsController < ApplicationController
       unless @quest.winner_id
         @quest.update(winner_id: @current_user.id)
       end
-      redirect_to "/quests/" + @quest.id.to_s + "/complete"
+      redirect_to "/quests/" + @quest.id.to_s + "/complete" and return
     end
 
     if(@quest.owner_id == @current_user.id)
       redirect_to edit_quest_path(@quest)
     elsif @quest.start_date > DateTime.current
       flash[:warning] = "Quest has not yet begun!"
-      redirect_to user_path(@current_user)
+      redirect_to user_path(@current_user) and return
     elsif @quest.end_date < DateTime.current
       flash[:warning] = "Quest has ended. Womp womp"
-      redirect_to user_path(@current_user)
+      redirect_to user_path(@current_user) and return
     elsif @quest.users.exists?(@current_user.id)
       gon.track = true
       locations = @quest.locations
@@ -115,7 +115,7 @@ class QuestsController < ApplicationController
     else
       gon.track = false
       flash[:danger] = "You are not a member of this quest! Please contact the quest owner for an invite."
-      redirect_to quests_path
+      redirect_to quests_path and return
     end
   end
 

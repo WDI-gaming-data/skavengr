@@ -1,6 +1,6 @@
 # Skavengr
 
-<http://skavengr.herokuapp.com/>
+<http://www.skavengr.herokuapp.com/>
 
 [Wireframes, ERD & User Stories](https://www.dropbox.com/sh/pv2ooa9rpok8t19/AACkBfOAKADkZxjo7DP4ZovMa?dl=0)
 

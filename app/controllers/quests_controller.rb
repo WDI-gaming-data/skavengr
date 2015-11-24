@@ -97,7 +97,8 @@ class QuestsController < ApplicationController
       redirect_to user_path(@current_user) and return
     elsif @quest.end_date < DateTime.current
       flash[:warning] = "Quest has ended. Womp womp"
-      redirect_to user_path(@current_user) and return
+
+      redirect_to "/quests/" + @quest.id.to_s + "/complete" and return
     elsif @quest.users.exists?(@current_user.id)
       gon.track = true
       locations = @quest.locations

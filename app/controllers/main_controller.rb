@@ -6,6 +6,10 @@ class MainController < ApplicationController
 		puts "------"
 	end
 
+	def about
+	end
+
+	
 	def mapstest
 	end
 end

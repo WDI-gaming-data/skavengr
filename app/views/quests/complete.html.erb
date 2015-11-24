@@ -2,13 +2,24 @@
 <h2>Congratulations, <%= @current_user.name %>!</h2>
 <% if @current_user.id == @quest.winner_id %>
   <h2> You won! </h2>
+<% else %>
+  <h2> You finished all the objectives. </h2>
 <% end %>
 
 <h2>Quest Participants:</h2>
 <% @player_json.sort_by! { |p| p[:finished] } %>
-<% @player_json.each do |player| %>
+<% @player_json.each_with_index do |player, idx| %>
   <div class="well">
-    <h4><%= player["name"] %></h4>
+    <h4>
+      <% if idx == 0%>
+        <i class="fa fa-border fa-2x gold fa-trophy"></i>
+      <% elsif idx == 1 %>
+        <i class="fa fa-border fa-2x silver fa-trophy"></i>
+      <% elsif idx == 2 %>
+        <i class="fa fa-border fa-2x bronze fa-trophy"></i>
+      <% end %>
+      <%= player["name"] %>
+    </h4>
     <% if player[:finished] != @quest.created_at %>
       <p>Finished: <%= player[:finished] %></p>
     <% else %>

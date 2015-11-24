@@ -13,7 +13,7 @@ class QuestsController < ApplicationController
       puts "------*********"
       puts u.name
       puts "------*********"
-      
+
       @quest_creators.push(u.name)
     end
   end
@@ -166,7 +166,7 @@ class QuestsController < ApplicationController
         end
       end
     end
-    render :json => @player_json
+    # render :json => @player_json
   end
 
   def create

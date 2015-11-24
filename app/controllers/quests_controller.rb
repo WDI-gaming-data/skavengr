@@ -29,7 +29,7 @@ class QuestsController < ApplicationController
   def add_location
     # render :json => params
     quest = Quest.find params[:id]
-    quest.locations.create name: params[:location]['name'], clue: params[:location]['clue'], lat: params[:location]['lat'], lng: params[:location]['lng'] 
+    quest.locations.create name: params[:location]['name'], clue: params[:location]['clue'], lat: params[:location]['lat'], lng: params[:location]['lng']
     redirect_to edit_quest_path(quest)
   end
 
@@ -102,8 +102,22 @@ class QuestsController < ApplicationController
     location = Location.find(params[:location_id])
     if !location.nil?
       joinObj = LocationsUsers.find_or_create_by(:user => @current_user, :location => location)
+      quest_objectives = Quest.find(location.quest_id).locations
+      completed_objectives = []
+      quest_objectives.each do |obj|
+        if @current_user.locations.exists?(obj)
+          completed_objectives << obj
+        end
+      end
+      if completed_objectives.length == quest_objectives.length
+        redirect_to quests_location_path id: location.quest_id
+      end
     end
     # User.find(@current_user.id).locations << Location.find(params[:location_id])
+  end
+
+  def complete
+    @quest = Quest.find(params[:id])
   end
 
   def create

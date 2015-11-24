@@ -8,7 +8,7 @@ class Quest < ActiveRecord::Base
 	validates :start_date,
 	presence: true,
 	# using validates_timeliness gem
-	:timeliness => {:on_or_after => lambda { Date.current }, :type => :datetime}
+	:timeliness => { :type => :datetime}
 
 	validates :end_date, 
 	presence: true,

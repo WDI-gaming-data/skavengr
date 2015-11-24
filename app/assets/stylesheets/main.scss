@@ -27,10 +27,13 @@
 	width: 200px;
 	height: 200px;
 }
+#about-link{
+	color: #960404;
+}
 
 #about-background{
 	background-color: #5b9bea;
-	height: 800px;
+	height: 1000px;
 }
 
 .picholder{
@@ -45,4 +48,16 @@
 	padding-left: 40px;
 	padding-right: 40px;
 	text-align: center;
+}
+#imglink-div{
+	text-align: center;
+}
+.img-link{
+	color: white;
+	text-align: center;
+}
+#imagelinks{
+	color: white;
+	margin-top: 30px;
+	text-decoration: underline;
 }

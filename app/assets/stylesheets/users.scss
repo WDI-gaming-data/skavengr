@@ -20,7 +20,7 @@ h2{
 }
 
 .questdiv, .questdiv-owned{
-	background: #047b93;
+	background: linear-gradient(0deg,  #DB984B, #a05500);
 	color: white;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -44,16 +44,14 @@ h2{
 		margin-bottom: 10px;
 	}
 }
-.questdiv-owned{
-	background: #960404;
-}
 .quest-label{
 	color: white;
 	text-align: center;
 }
 #quest-container{
 	color: white;
-	background: #047b93;
+	background: linear-gradient(0deg,  #DB984B, #960404);
+	// background: #960404;
 	width: 95%;
 	margin-left: 0%;
 	border-radius: 10px;
@@ -64,7 +62,7 @@ h2{
 }
 #participating-quest-container{
 	color: white;
-	background: #960404;
+	background: linear-gradient(0deg, #DB984B, #960404);
 	width: 95%;
 	margin-left: 5%;
 	border-radius: 10px;
@@ -73,10 +71,10 @@ h2{
 	border: 3px solid white;
 }
 
-// #userbackground{
-// 	width: 100%;
-// 	background-image: url("oldmap.jpg");
-// }
+#userbackground{
+	width: 100%;
+	background-image: url("oldmap.jpg");
+}
 h6{
 	text-decoration: underline;
 }

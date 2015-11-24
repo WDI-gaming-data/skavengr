@@ -1,4 +1,5 @@
 <h1>Quest complete.</h1>
+<div class="container">
 <h2>Congratulations, <%= @current_user.name %>!</h2>
 <% if @current_user.id == @quest.winner_id %>
   <h2> You won! </h2>
@@ -25,6 +26,4 @@
     <% else %>
       <p>Did not finish.</p>
     <% end %>
-
-  </div>
-<% end %>
+</div>

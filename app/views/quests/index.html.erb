@@ -10,11 +10,12 @@
 		<!-- Lists all owned quests -->
 		<div id="participating-quest-container">
 			<h2 class="quest-label">Participant</h2>
+			<p class="text-center">The quests you have been invited to join</p>
 			<% i=0 %>
 			<% if @player_quests.length > 0 %>
 				<% @player_quests.each do |q| %>
 				<div class="container questdiv">
-					<h4><%=  q.name %> - Creator: <%= @quest_creators[i] %></h4>
+					<h4><%=  q.name %> - Invited by <%= @quest_creators[i] %></h4>
 					<% i+=1 %>
 					<%=link_to 'Go to this Quest', quest_path(q), class: 'btn center-block'  %>
 					<!-- <a href="/quests/<%= q.id %>" class="btn center-block">Go to this Quest</a> -->
@@ -33,7 +34,7 @@
 				</div>	
 				<% end %>
 			<% else %>
-				<h4 class="text-center">You are not a member of any Quests yet</h4>
+				<h4 class="text-center">**You are not a member of any Quests yet**</h4>
 			<% end %> 
 		</div>
 		</div>
@@ -44,6 +45,7 @@
 		
 		<div id="quest-container">
 			<h2  class="quest-label">Creator</h2>
+			<p class="text-center">The quests you have designed for others</p>
 			<% if @owner_quests.length > 0 %>
 				<% @owner_quests.each do |q| %>
 				<div class="container questdiv-owned">
@@ -61,7 +63,7 @@
 				</div>	
 				<% end %>
 			<% else %>
-				<h4 class="text-center">You have not created any Quests yet</h4>
+				<h4 class="text-center">**You have not created any Quests yet**</h4>
 			<% end %>
 		</div>
 		</div>

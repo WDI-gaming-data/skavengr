@@ -64,7 +64,9 @@ class QuestsController < ApplicationController
   # close enough to complete them.
   def show
     @quest = Quest.find(params[:id])
-    if @quest.start_date > DateTime.current
+    if(@quest.owner_id == @current_user.id)
+      redirect_to edit_quest_path(@quest)
+    elsif @quest.start_date > DateTime.current
       flash[:warning] = "Quest has not yet begun!"
       redirect_to user_path(@current_user)
     elsif @quest.end_date < DateTime.current

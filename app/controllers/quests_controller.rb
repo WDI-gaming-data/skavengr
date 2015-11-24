@@ -3,6 +3,15 @@ class QuestsController < ApplicationController
 	before_action :is_authenticated?
 
   def index
+    date = DateTime.current.utc
+    quest = Quest.last
+    render :json => {
+      :now => date, 
+      :start=> quest.start_date,
+      :end => quest.end_date, 
+      :started? => quest.start_date < date,
+      :active? => quest.end_date > date
+    }
   end
 
   def edit
@@ -62,7 +71,13 @@ class QuestsController < ApplicationController
   # close enough to complete them.
   def show
     @quest = Quest.find(params[:id])
-    if @quest.users.exists?(@current_user.id)
+    if @quest.start_date > DateTime.current
+      flash[:warning] = "Quest has not yet begun!"
+      redirect_to user_path(@current_user)
+    elsif @quest.end_date < DateTime.current
+      flash[:warning] = "Quest has ended. Womp womp"
+      redirect_to user_path(@current_user)
+    elsif @quest.users.exists?(@current_user.id)
       gon.track = true
       locations = @quest.locations
       gon.remaining_locations = []

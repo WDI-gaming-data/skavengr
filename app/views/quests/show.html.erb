@@ -1,21 +1,24 @@
+<div id="questshow">
 <h1><%= @quest.name %></h1>
 <div class="locations">
-  <h2>Current Objectives</h2>
-  <% @remaining_locations.each do |loc| %>
-    <div class="well">
-      <h3><%= loc.name %></h3>
-      <p><%= loc.clue %></p>
+    <div class="container objectives">
+      <h2 class="text-center">Current Objectives</h2>
+      <% @remaining_locations.each do |loc| %>
+        <h3 ><%= loc.name %></h3>
+        <p><%= loc.clue %></p>
+      <% end %>
     </div>
-  <% end %>
-  <h2>Completed Objectives</h2>
-  <% @completed_locations.each do |loc| %>
-    <div class="well">
-      <h3><%= loc.name %></h3>
-      <p><%= loc.clue %></p>
+    <div class="container completed">
+      <h2 class="text-center">Completed Objectives</h2>
+      <% @completed_locations.each do |loc| %>
+        <h3><%= loc.name %></h3>
+        <p><%= loc.clue %></p>
+      <% end %>
     </div>
-  <% end %>
 </div>
 
 <div id="map"></div>
+
+</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzi-6l9dHiM-QmEvZ9aDD44hHrbv4ySOc&libraries=geometry&callback=initPlayerMap" async defer></script>

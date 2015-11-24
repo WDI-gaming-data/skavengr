@@ -3,3 +3,17 @@
 <% if @current_user.id == @quest.winner_id %>
   <h2> You won! </h2>
 <% end %>
+
+<h2>Quest Participants:</h2>
+<% @player_json.sort_by! { |p| p[:finished] } %>
+<% @player_json.each do |player| %>
+  <div class="well">
+    <h4><%= player["name"] %></h4>
+    <% if player[:finished] != @quest.created_at %>
+      <p>Finished: <%= player[:finished] %></p>
+    <% else %>
+      <p>Did not finish.</p>
+    <% end %>
+
+  </div>
+<% end %>

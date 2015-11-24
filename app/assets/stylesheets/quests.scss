@@ -12,7 +12,7 @@ html, body {
 }
 #questshow{
 	width: 100%;
-	height: 800px;
+	height: 1000px;
 	background-image: url("oldmap.jpg");
 }
 
@@ -90,11 +90,17 @@ div .modal-body{
 	background-color: #db984b;
 }
 .objectives{
+	overflow: auto;
 	height: 200px;
 	background-color: #960404;
+	border: 2px solid white;
+	border-radius: 5px;
 }
 .completed{
+	overflow: auto;
 	height: 200px;
 	background-color: #db984b;
 	margin-bottom: 20px;
+	border: 2px solid white;
+	border-radius: 5px;
 }

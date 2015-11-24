@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   post 'quests/:id/add_location' => 'quests#add_location'
 
-  get 'quests/complete'
+  get 'quests/:id/complete' => 'quests#complete'
 
   # get 'users/new'
   get 'users/:id/edit' => 'users#edit'

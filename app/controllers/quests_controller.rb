@@ -95,14 +95,14 @@ class QuestsController < ApplicationController
         end
       end
       if completed_objectives.length == quest_objectives.length
-        render :json => location
-        # redirect_to quests_complete_path
+        redirect_to quests_location_path id: location.quest_id
       end
     end
     # User.find(@current_user.id).locations << Location.find(params[:location_id])
   end
 
   def complete
+    @quest = Quest.find(params[:id])
   end
 
   def create

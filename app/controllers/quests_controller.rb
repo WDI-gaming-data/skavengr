@@ -3,8 +3,19 @@ class QuestsController < ApplicationController
 	before_action :is_authenticated?
 
   def index
+
     @owner_quests = Quest.where(owner_id: @current_user.id )
     @player_quests = @current_user.quests
+
+    @quest_creators = []
+    @player_quests.each do |q|
+      u = User.find_by(id: q.owner_id)
+      puts "------*********"
+      puts u.name
+      puts "------*********"
+      
+      @quest_creators.push(u.name)
+    end
   end
 
   def edit

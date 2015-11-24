@@ -3,35 +3,58 @@
 	<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-primary center-block", id: "makequest" %>
 
 
-	<!-- Lists all owned quests -->
-	<div id="participating-quest-container">
-		<h2 class="quest-label">Quests you participate in</h2>
-		<% @player_quests.each do |q| %>
-		<div class="container questdiv">
-			<h4><%=  q.name %></h4>
-			<h6>Participants:</h6>
-				<% q.users.each do |u|%>
-					<%= u.name  %> 
-				<% end %>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			
+		
+		<!-- Lists all owned quests -->
+		<div id="participating-quest-container">
+			<h2 class="quest-label">Participant</h2>
+			<% i=0 %>
+			<% @player_quests.each do |q| %>
+			<div class="container questdiv">
+				<h4><%=  q.name %> - Creator: <%= @quest_creators[i] %></h4>
+				<% i+=1 %>
+				<%=link_to 'Go to this Quest', quest_path(q), class: 'btn center-block'  %>
+				<!-- <a href="/quests/<%= q.id %>" class="btn center-block">Go to this Quest</a> -->
+				<h6>Participants: </h6>
+					<p><% q.users.each do |u|%>
+						<%= u.name  %> 
+					<% end %>
+					</p>
+					
+				
 
-			<h6>Timeframe:</h6>
-			<p class="pull-left">Start: <%= q.start_date %></p>
-			<p class="pull-right">End: <%= q.end_date %></p>
-			<a href="/quests/<%= q.id %>" class="btn pull-right">Go to this Quest</a>
-		</div>	
-		<% end %>
-	</div>
-<!-- Lists all quests the user has participated in -->
-	<div id="quest-container">
-		<h2  class="quest-label">Quests you created</h2>
-		<% @owner_quests.each do |q| %>
-		<div class="container questdiv-owned">
-			<h4><%=  q.name %></h4>
-			<p><%= q.start_date %></p>
-			<p><%= q.end_date %></p>
-			<%= link_to 'Delete this quest', quest_path(q), class: 'btn', method: :delete %>
-			<%= link_to 'Edit this quest', edit_quest_path(q), class: 'btn' %>
-		</div>	
-		<% end %>
+				<h6>Timeframe:</h6>
+				<p>Start: <%= q.start_date %></p>
+				<p>End: <%= q.end_date %></p>
+			</div>	
+			<% end %>
+		</div>
+		</div>
+	<!-- Lists all quests the user has participated in -->
+
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			
+		
+		<div id="quest-container">
+			<h2  class="quest-label">Creator</h2>
+			<% @owner_quests.each do |q| %>
+			<div class="container questdiv-owned">
+				<h4><%=  q.name %></h4>
+				<%= link_to 'Edit this quest', edit_quest_path(q), class: 'btn center-block' %>
+				<h6>Participants: </h6>
+					<p><% q.users.each do |u|%>
+						<%= u.name  %>
+					<% end %>
+					</p>
+				<h6>Timeframe:</h6>
+				<p>Start: <%= q.start_date %></p>
+				<p>End: <%= q.end_date %></p>
+				<%= link_to 'Delete this quest', quest_path(q), class: 'btn center-block delete', method: :delete %>
+			</div>	
+			<% end %>
+		</div>
+		</div>
 	</div>
 </div>

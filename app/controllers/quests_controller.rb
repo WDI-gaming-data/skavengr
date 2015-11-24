@@ -1,6 +1,7 @@
 class QuestsController < ApplicationController
-
+  
 	before_action :is_authenticated?
+  before_action :set_time_zone
 
   def index
 

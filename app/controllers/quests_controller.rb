@@ -64,7 +64,23 @@ class QuestsController < ApplicationController
   # close enough to complete them.
   def show
     @quest = Quest.find(params[:id])
-    if @quest.start_date > DateTime.current
+    quest_objectives = @quest.locations
+    completed_objectives = []
+    quest_objectives.each do |obj|
+      if @current_user.locations.exists?(obj)
+        completed_objectives << obj
+      end
+    end
+    if completed_objectives.length == quest_objectives.length
+      unless @quest.winner_id
+        @quest.update(winner_id: @current_user.id)
+      end
+      redirect_to "/quests/" + @quest.id.to_s + "/complete"
+    end
+
+    if(@quest.owner_id == @current_user.id)
+      redirect_to edit_quest_path(@quest)
+    elsif @quest.start_date > DateTime.current
       flash[:warning] = "Quest has not yet begun!"
       redirect_to user_path(@current_user)
     elsif @quest.end_date < DateTime.current
@@ -93,9 +109,10 @@ class QuestsController < ApplicationController
 
   def complete_location
     location = Location.find(params[:location_id])
+    quest = Quest.find(location.quest_id)
     if !location.nil?
       joinObj = LocationsUsers.find_or_create_by(:user => @current_user, :location => location)
-      quest_objectives = Quest.find(location.quest_id).locations
+      quest_objectives = quest.locations
       completed_objectives = []
       quest_objectives.each do |obj|
         if @current_user.locations.exists?(obj)
@@ -103,10 +120,16 @@ class QuestsController < ApplicationController
         end
       end
       if completed_objectives.length == quest_objectives.length
-        redirect_to quests_location_path id: location.quest_id
+        unless quest.winner_id
+          quest.update(winner_id: @current_user.id)
+        end
+        puts '***************'
+        puts 'in the completion if statement'
+        puts '***************'
+        # redirect_to quests_location_path id: location.quest_id
+        redirect_to "/quests/" + quest.id.to_s + "/complete"
       end
     end
-    # User.find(@current_user.id).locations << Location.find(params[:location_id])
   end
 
   def complete

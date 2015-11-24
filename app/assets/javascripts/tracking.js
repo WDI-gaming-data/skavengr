@@ -58,13 +58,19 @@ function monitorPosition(pos) {
     );
     if(completed === true) {
       console.log('In the completed objective if statement');
-      $.post('/quests/location', { location_id: location.id }, function(data) {
-
-      }, 'json');
+      // sweetAlert('Objective Completed: ' + location.name, 'Remaining objectives: ' + gon.remaining_locations.length, 'success');
+      $.post('/quests/location', { location_id: location.id }, null, 'json');
       gon.completed_locations.push(location);
       gon.remaining_locations.splice(idx, 1);
       renderObjectives();
-      sweetAlert('Objective Completed: ' + location.name, 'Remaining objectives: ' + gon.remaining_locations.length, 'success');
+      // sweetAlert('Objective Completed: ' + location.name, 'Remaining objectives: ' + gon.remaining_locations.length, 'success');
+      sweetAlert({
+        title: 'Objective Completed: ' + location.name,
+        text: 'Remaining objectives: ' + gon.remaining_locations.length,
+        type: 'success'
+      }, function() {
+        window.location = 'http://localhost:3000/quests/' + location.quest_id + '/complete';
+      });
     }
   });
 }

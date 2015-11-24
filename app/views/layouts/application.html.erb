@@ -19,11 +19,11 @@
 	<nav class="navbar">
 
 
-		<%= link_to image_tag('vulture-white.png', class: "vulture"), "/" %>
+		<%= link_to image_tag('vulture-white.png', class: "vulture pull-left"), "/" %>
 		<a id="home" class="navbar-brand" href="/">Skavengr</a>
 			<div id="navright" class="pull-right">
 
-				<% if @current_user  %>
+				<% if @current_user %>
 				<ul id="nav-links-right">
 					<li><a id="quest-manager" href="/users/<%= @current_user.id %>">Quests</a></li>
 					<li class="dropdown">

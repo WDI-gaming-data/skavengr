@@ -15,7 +15,11 @@ html, body {
 	height: 1000px;
 	background-image: url("oldmap.jpg");
 }
-
+#quest-edit-background{
+	width: 100%;
+	height: 1000px;
+	background-image: url("oldmap.jpg");
+}
 #map {
   width: 70%;
   margin-left: 15%;
@@ -35,6 +39,9 @@ html, body {
 .image-instruction{
 	border: 4px solid black;
 	width: height;
+}
+h3{
+	color: white;
 }
 
 #leftwell, #middlewell, #rightwell{

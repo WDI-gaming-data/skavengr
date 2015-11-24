@@ -28,13 +28,14 @@ Nothing special. ````bundle install ```` should do the trick.
 * Model validations created with help from the [timeliness gem](https://github.com/adzap/validates_timeliness/tree/master), the [date time validator gem](https://github.com/travisjeffery/validates_phone_number/blob/master/README.markdown), and the [email validator gem](https://github.com/balexand/email_validator)
 * gon for asset piping
 * jQuery/sweetAlert
+* Font Awesome for sweet sweet icons
 
 
 ## Known Issues
 * The quest creation wizard acts wonky if users try and go back from the heroes page to the location page
 * The maps fail to load occasionally when modals first pop up
-*The dot showing current location does not scale up in size with map zoom
-*The app is only configured to adjust to the Pacific Time Zone right now.
+* The dot showing current location does not scale up in size with map zoom
+* The app is only configured to adjust to the Pacific Time Zone right now.
 
 
 ## Wishlist

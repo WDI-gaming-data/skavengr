@@ -1,6 +1,7 @@
 # Skavengr
 
 <http://www.skavengr.herokuapp.com/>
+
 [Wireframes, ERD & User Stories](https://www.dropbox.com/sh/pv2ooa9rpok8t19/AACkBfOAKADkZxjo7DP4ZovMa?dl=0)
 
 ## Basic Info
@@ -19,7 +20,7 @@ If we more time, we would love to do more user testing, and we have some awesome
 Nothing special. ````bundle install ```` should do the trick.
 
 ### Technologies used
-*Built on Ruby on Rails
+* Built on Ruby on Rails
 * HTML / CSS / JavaScript
 * BootStrap 3
 [Bootstrap form helper](https://github.com/bootstrap-ruby/rails-bootstrap-forms)
@@ -37,15 +38,15 @@ Nothing special. ````bundle install ```` should do the trick.
 
 
 ### Wishlist
-*Alert users via text message when quests they are added to are starting, won, nearing completion, and completed
-*Advanced stat tracking, showing how many users completed each task, what order tasks were typically created in, etc
-*generate routes taken by players, then on completion show players the best possible route
-*Include either Google Places or 4Square API and a textahead so creators can add locations without manually dropping a pin.  
+* Alert users via text message when quests they are added to are starting, won, nearing completion, and completed
+* Advanced stat tracking, showing how many users completed each task, what order tasks were typically created in, etc
+* generate routes taken by players, then on completion show players the best possible route
+* Include either Google Places or 4Square API and a textahead so creators can add locations without manually dropping a pin.  
 * Allow sign up via Facebook, Twitter, etc.
 * Allow users to upload photo clues instead of just text clues.
-*Update users with a hotter or colder indicator every couple seconds while they are questing.
+* Update users with a hotter or colder indicator every couple seconds while they are questing.
 
 ### Contributors
-*Alec McGovern
-*Joe Rehfuss
-*Carl Reiner
+* Alec McGovern
+* Joe Rehfuss
+* Carl Reiner

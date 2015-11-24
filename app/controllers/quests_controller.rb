@@ -64,6 +64,20 @@ class QuestsController < ApplicationController
   # close enough to complete them.
   def show
     @quest = Quest.find(params[:id])
+    quest_objectives = @quest.locations
+    completed_objectives = []
+    quest_objectives.each do |obj|
+      if @current_user.locations.exists?(obj)
+        completed_objectives << obj
+      end
+    end
+    if completed_objectives.length == quest_objectives.length
+      unless @quest.winner_id
+        @quest.update(winner_id: @current_user.id)
+      end
+      redirect_to "/quests/" + @quest.id.to_s + "/complete"
+    end
+
     if(@quest.owner_id == @current_user.id)
       redirect_to edit_quest_path(@quest)
     elsif @quest.start_date > DateTime.current
@@ -109,7 +123,11 @@ class QuestsController < ApplicationController
         unless quest.winner_id
           quest.update(winner_id: @current_user.id)
         end
-        redirect_to quests_location_path id: location.quest_id
+        puts '***************'
+        puts 'in the completion if statement'
+        puts '***************'
+        # redirect_to quests_location_path id: location.quest_id
+        redirect_to "/quests/" + quest.id.to_s + "/complete"
       end
     end
   end

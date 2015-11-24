@@ -47,14 +47,14 @@ function checkDistance(lat_a, lng_a, lat_b, lng_b, distanceThreshold) {
 }
 
 function monitorPosition(pos) {
-  playerCircle.center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+  playerCircle.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
   gon.remaining_locations.forEach(function(location, idx) {
     var completed = checkDistance(
       pos.coords.latitude,
       pos.coords.longitude,
       location.lat,
       location.lng,
-      50
+      25
     );
     if(completed === true) {
       console.log('In the completed objective if statement');

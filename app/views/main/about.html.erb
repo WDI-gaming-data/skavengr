@@ -1,18 +1,28 @@
 <div id="about-background">
 	<h1>All about our project</h1>
-	<p class="text-center">Let's write lots of good facts about how awesome skavengr is right here.  In the near future, all this writing will be deleted for something better.</p>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
+			<h4 class="text-justify">Skavengr was built with Ruby on Rails in one week as a group project for a General Assembly Web Development Immersive Class.  The idea for a location based scavenger hunt app was inspired by Pokemon Go, FrogQuest, and 4Square, along with our team's love of games in general.  Read more about it on our <a href="https://github.com/WDI-gaming-data/skavengr">Github page</a></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 picholder">
+			<h2 class = 'text-center'>Carl Reiner</h2>
+			<h4 class = 'text-center'>Git Master &amp; Mapping Wizard</h4>
 			<div class="midholder">
 				<%=image_tag('carl.jpg')  %>
 			</div>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 picholder">
+		<h2 class = 'text-center'>Joe Rehfuss</h2>
+			<h4 class = 'text-center'>Project Manager &amp; Database Rockstar</h4>
 			<div class="midholder">
 				<%=image_tag('joe.jpg')  %>
 			</div>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 picholder">
+			<h2 class = 'text-center'>Alec McGovern</h2>
+			<h4 class = 'text-center'>Front-End Ninja</h4>
 			<div class="midholder">
 				<%=image_tag('alec.jpg')  %>
 			</div>
@@ -22,37 +32,31 @@
 	<div class="row">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="midholder">
-				<p class="bio">Carl is a pretty cool guy Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="bio">Carl is a full-stack web developer with a passion for technology and accessibility. Working in neuro rehab taught him that accessiblity shouldn’t be an afterthought, and this belief helps inform his development process. He thrives as part of a team, sharing his knowledge and learning from others. When he is not coding, you will find him enjoying the outdoors or a good movie.</p>
 			</div>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="midholder">
-				<p class="bio">Joe is awesome at coding Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="bio">Joe is a Seattle-based full-stack web developer with a passion for creating efficient, user-friendly applications.  He is excellent at problem solving, able to overcome challenges quickly, and thrives when working as part of a team.  In his free time, he enjoys board games and bouldering.</p>
 			</div>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="midholder">
-				<p class="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="bio">Alec is a web developer with a strong interest in music and the arts. The internet has fundamentally changed the way that we share our creative endeavors around the globe. Alec aims to be on the front lines of where this content is hosted, and to help people around the world share their talents. When he is not programming he like to produce music, play games, and go on outdoor adventures.</p>
 			</div>
 		</div>
-		
 	</div>
-
+	<div class="row">
+		<h2 class = 'text-center'>Technologies</h2>	
+		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-4">
+			<ul>
+				<li><strong>Maps generated using the <a href="https://developers.google.com/maps/?hl=en">Google maps API</a></strong></li>
+				<li><strong>Forms generated using the <a href="https://github.com/bootstrap-ruby/rails-bootstrap-forms">BootStrap form helper</a></strong></li>
+				<li><strong>Validations made possible by the<a href="https://github.com/adzap/validates_timeliness/tree/master">timeliness gem</a>, the <a href="https://github.com/travisjeffery/validates_phone_number/blob/master/README.markdown">phone number validation gem</a>, and the <a href="https://github.com/balexand/email_validator">email validation gem</a></strong></li>
+				<li><strong>Text messaging service made possible by <a href="https://www.twilio.com/api">Twilio</a></strong></li>
+			</ul>
+		</div>
+	</div>
 	<p id="imagelinks" class="text-center">Image Links:</p><br>
 	<div id="imglink-div">
 		<a class="img-link text-center" href="http://www.financialgazette.co.zw/wp-content/uploads/Vulture.jpg">http://www.financialgazette.co.zw/wp-content/uploads/Vulture.jpg</a><br>

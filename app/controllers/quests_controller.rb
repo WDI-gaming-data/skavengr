@@ -157,16 +157,16 @@ class QuestsController < ApplicationController
       if completed_objectives.length == @quest.locations.length
         completions = []
         completed_objectives.each do |item|
-          if(LocationsUsers.exists?(location_id: item.id))
-            completions << LocationsUsers.where(location_id: item.id)
+          if(LocationsUsers.exists?(location_id: item.id, user_id: player.id))
+            completions << LocationsUsers.where(location_id: item.id, user_id: player.id)
           end
         end
         for c in completions do
           puts "************************************"
-          puts c.first.created_at
+          puts c.as_json[0]["created_at"]
           puts "************************************"
-          if(c.first.created_at > @player_json[i][:finished])
-            @player_json[i][:finished] = c.first.created_at
+          if(c.as_json[0]["created_at"] > @player_json[i][:finished])
+            @player_json[i][:finished] = c.as_json[0]["created_at"]
           end
         end
       end

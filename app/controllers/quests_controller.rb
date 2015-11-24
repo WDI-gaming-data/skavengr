@@ -13,7 +13,7 @@ class QuestsController < ApplicationController
       puts "------*********"
       puts u.name
       puts "------*********"
-      
+
       @quest_creators.push(u.name)
     end
   end
@@ -145,6 +145,28 @@ class QuestsController < ApplicationController
 
   def complete
     @quest = Quest.find(params[:id])
+    @players = @quest.users
+    # render :json => @players[0].locations.where(quest_id: @quest.id)
+    @player_json = []
+    @players.each_with_index do |player, i|
+      @player_json[i] = @players[i].as_json
+      @player_json[i][:finished] = @quest.created_at
+      completed_objectives = player.locations.where(quest_id: @quest.id)
+      if completed_objectives.length == @quest.locations.length
+        completions = []
+        completed_objectives.each do |item|
+          if(LocationsUsers.exists?(location_id: item.id))
+            completions << item
+          end
+        end
+        for c in completions do
+          if(c.created_at > @player_json[i][:finished])
+            @player_json[i][:finished] = c.created_at
+          end
+        end
+      end
+    end
+    # render :json => @player_json
   end
 
   def create

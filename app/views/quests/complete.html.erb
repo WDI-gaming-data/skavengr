@@ -1,23 +1,36 @@
-<h1>Quest complete.</h1>
+<% @player_json.sort_by! { |p| p[:finished] } %>
+<h1 class="text-center">Quest complete.</h1>
 <div class="container">
-<h2>Congratulations, <%= @current_user.name %>!</h2>
+<h2 class="text-center">Congratulations, <%= @current_user.name %>!</h2>
 <% if @current_user.id == @quest.winner_id %>
-  <h2> You won! </h2>
-<% else %>
-  <h2> You finished all the objectives. </h2>
+  <h2 class="text-center">
+    <i class="fa fa-5x gold fa-trophy"></i>
+  </h2>
+  <h2 class="text-center">You won!</h2>
+<% elsif @current_user.id == @player_json[1]["id"] %>
+  <h2 class="text-center">
+    <i class="fa fa-5x silver fa-trophy"></i>
+  </h2>
+  <h2 class="text-center">You placed second!</h2>
+<% elsif @current_user.id == @player_json[2]["id"] %>
+  <h2 class="text-center">
+    <i class="fa fa-5x bronze fa-trophy"></i>
+  </h2>
+  <h2 class="text-center">You placed third!</h2>
 <% end %>
 
-<h2>Quest Participants:</h2>
-<% @player_json.sort_by! { |p| p[:finished] } %>
+<h4>Quest Participants:</h4>
 <% @player_json.each_with_index do |player, idx| %>
   <div class="well">
     <h4>
-      <% if idx == 0%>
-        <i class="fa fa-2x gold fa-trophy"></i>
-      <% elsif idx == 1 %>
-        <i class="fa fa-2x silver fa-trophy"></i>
-      <% elsif idx == 2 %>
-        <i class="fa fa-2x bronze fa-trophy"></i>
+      <% if player[:finished] != @quest.created_at %>
+        <% if idx == 0%>
+          <i class="fa fa-2x gold fa-trophy"></i>
+        <% elsif idx == 1 %>
+          <i class="fa fa-2x silver fa-trophy"></i>
+        <% elsif idx == 2 %>
+          <i class="fa fa-2x bronze fa-trophy"></i>
+        <% end %>
       <% end %>
       <%= player["name"] %>
     </h4>

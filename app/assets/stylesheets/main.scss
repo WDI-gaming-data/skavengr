@@ -14,15 +14,21 @@
     background: url('/oldmap.jpg') 50%; 
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 80%;  
+    height: 100%;  
     margin: 0 auto; 
     width: 100%; 
     position: relative; 
     border-bottom: 4px solid black;
 }
 #fmid{
-	height: 160px;
+	height: 180px;
 	background: white;
+	h1{
+		font-size: 4vw;
+	}
+	p{
+		font-size: 2vw;
+	}
 }
 #middle { 
     background: url('/seattle.jpg') 50%; 
@@ -36,11 +42,17 @@
     border-bottom: 4px solid black;
 }
 #lmid{
-	height: 160px;
+	height: 180px;
 	background: white;
 	.text-width{
 		width: 60%;
 		margin-left: 20%;
+	}
+	h1{
+		font-size: 4vw;
+	}
+	p{
+		font-size: 2vw;
 	}
 }
 #last { 

@@ -12,29 +12,25 @@
 }
 #first { 
     background: url('/oldmap.jpg') 50%; 
-    background-size: 100%;
+    // background-size: 100%;
     background-repeat: no-repeat;
-    height: 100%;  
+    height: 500px;  
     margin: 0 auto; 
     width: 100%; 
     position: relative; 
     border-bottom: 4px solid black;
 }
 #fmid{
-	height: 180px;
 	background: white;
-	h1{
+	#intro-one{
 		font-size: 4vw;
-	}
-	p{
-		font-size: 2vw;
 	}
 }
 #middle { 
     background: url('/seattle.jpg') 50%; 
-    background-size: 100%;
+    // background-size: 100%;
     background-repeat: no-repeat;
-    height: 100%;  
+    height: 500px;  
     margin: 0 auto; 
     width: 100%; 
     position: relative; 
@@ -42,24 +38,20 @@
     border-bottom: 4px solid black;
 }
 #lmid{
-	height: 180px;
 	background: white;
 	.text-width{
 		width: 60%;
 		margin-left: 20%;
 	}
-	h1{
-		font-size: 4vw;
-	}
-	p{
+	#intro-two{
 		font-size: 2vw;
 	}
 }
 #last { 
     background: url('/vulture2.jpg') 50%; 
     background-size: 100%;
-    background-repeat: no-repeat;
-    height: 100%;
+    // background-repeat: no-repeat;
+    height: 500px;
     margin: 0 auto; 
     width: 100%; 
     position: relative; 

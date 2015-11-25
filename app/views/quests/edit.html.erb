@@ -8,9 +8,9 @@
 		<h3>Locations</h3>
 		<% @quest.locations.each do |location| %>
 			<div class="well">		
-				<%= location.name %>
-				<%= location.clue %>
-				<p><span><%= location.lat %></span><span><%= location.lng %></span></p><br>
+				<h4><%= location.name %></h4>
+				<p><%= location.clue %></p>
+				<p><strong>Latitude: </strong><span><%= location.lat %></span><strong>Longitude: </strong><span><%= location.lng %></span></p><br>
 				<%= link_to 'Remove', {:controller => 'quests', :action =>'remove_location', :location=>location.id }, method: :post %>
 			</div>
 		<% end %>
@@ -28,8 +28,8 @@
 		<h3> Name and times </h3>
 		<%= bootstrap_form_for @quest do |f|%>
 			<%= f.text_field :name, value: @quest.name %>
-			<%= f.datetime_local_field :start, value: @quest.start_date.to_s.split(' ').join('T')[0...-4] %>
-			<%= f.datetime_local_field :end, value: @quest.end_date.to_s.split(' ').join('T')[0...-4] %>
+			<%= f.datetime_local_field :start, value: @quest.start_date.to_s.split(' ').join('T')[0...-6] %>
+			<%= f.datetime_local_field :end, value: @quest.end_date.to_s.split(' ').join('T')[0...-6] %>
 			<%= f.submit 'Update name and dates', class: 'btn' %>
 		<%end  %>
 	</div>

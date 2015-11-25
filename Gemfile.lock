@@ -141,8 +141,6 @@ GEM
     thread_safe (0.3.5)
     tilt (2.0.1)
     timeliness (0.3.7)
-    turbolinks (2.5.3)
-      coffee-rails
     twilio-ruby (4.2.1)
       builder (>= 2.1.2)
       jwt (~> 1.0)
@@ -180,7 +178,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   sweetalert-rails
-  turbolinks
   twilio-ruby (~> 4.2.1)
   uglifier (>= 1.3.0)
   validates_phone_number

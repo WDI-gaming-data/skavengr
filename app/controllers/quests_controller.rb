@@ -169,10 +169,20 @@ class QuestsController < ApplicationController
             @player_json[i][:finished] = c.as_json[0]["created_at"]
           end
         end
+        @player_json.sort_by! { |p| p[:finished] }
+        @player_json.each do |p|
+          if p[:finished] == @quest.created_at
+            @player_json << @player_json.shift
+          end
+        end
       end
     end
     # render :json => @player_json
   end
+
+#   <% @player_json.each do |p| %>
+# <% if p[:finished] == @quest.created_at then @player_json.push(@player_json) %>
+# <% end %>
 
   def create
     # render :json => params

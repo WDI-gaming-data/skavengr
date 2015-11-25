@@ -1,4 +1,4 @@
-<% @player_json.sort_by! { |p| p[:finished] } %>
+
 <h1 class="text-center">Quest complete.</h1>
 <div class="container">
 <h2 class="text-center">Congratulations, <%= @current_user.name %>!</h2>
@@ -19,9 +19,10 @@
   <h2 class="text-center">You placed third!</h2>
 <% end %>
 
-<h4>Quest Participants:</h4>
+
+<h4 class="text-center">Quest Participants:</h4>
 <% @player_json.each_with_index do |player, idx| %>
-  <div class="well">
+  <div class="well text-center">
     <h4>
       <% if player[:finished] != @quest.created_at %>
         <% if idx == 0%>
@@ -39,6 +40,7 @@
     <% else %>
       <p>Did not finish.</p>
     <% end %>
-	  </div>
+	 </div>
 	<% end %>
+
 </div>

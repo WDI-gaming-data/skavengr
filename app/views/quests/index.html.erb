@@ -1,6 +1,8 @@
 <div id="userbackground">
 	<h1>Welcome to your Quest Manager, <%= @current_user.name %></h1>
+
 	<%= link_to "Make a new Quest", new_quest_path, class: "btn btn-primary center-block", id: "makequest" %>
+
 
 
 	<div class="row">
@@ -9,15 +11,14 @@
 		
 		<!-- Lists all owned quests -->
 		<div id="participating-quest-container">
-			<h2 class="quest-label">Participant</h2>
-			<p class="text-center">The quests you have been invited to join</p>
+			<h2 class="quest-label">Participating In</h2>
+			<p class="text-center">Quests you have been invited to join by others</p>
 			<% i=0 %>
 			<% if @player_quests.length > 0 %>
 				<% @player_quests.each do |q| %>
 				<div class="container questdiv">
 					<h4><%=  q.name %> - Invited by <%= @quest_creators[i] %></h4>
 					<% i+=1 %>
-					<%=link_to 'Go to this Quest', quest_path(q), class: 'btn center-block'  %>
 					<!-- <a href="/quests/<%= q.id %>" class="btn center-block">Go to this Quest</a> -->
 					<h6>Participants: </h6>
 						<p>
@@ -31,6 +32,7 @@
 					<h6>Timeframe:</h6>
 					<p>Start: <%= q.start_date %></p>
 					<p>End: <%= q.end_date %></p>
+					<%=link_to 'Go to this Quest', quest_path(q), class: 'btn center-block go-to'  %>
 				</div>	
 				<% end %>
 			<% else %>
@@ -44,13 +46,12 @@
 			
 		
 		<div id="quest-container">
-			<h2  class="quest-label">Creator</h2>
-			<p class="text-center">The quests you have designed for others</p>
+			<h2  class="quest-label">Creator of</h2>
+			<p class="text-center">Quests you have designed for others</p>
 			<% if @owner_quests.length > 0 %>
 				<% @owner_quests.each do |q| %>
 				<div class="container questdiv-owned">
 					<h4><%=  q.name %></h4>
-					<%= link_to 'Edit this quest', edit_quest_path(q), class: 'btn center-block' %>
 					<h6>Participants: </h6>
 						<p><% q.users.each do |u|%>
 							<%= u.name  %>
@@ -59,7 +60,8 @@
 					<h6>Timeframe:</h6>
 					<p>Start: <%= q.start_date %></p>
 					<p>End: <%= q.end_date %></p>
-					<%= link_to 'Delete this quest', quest_path(q), class: 'btn center-block delete', method: :delete %>
+					<%= link_to 'Edit Quest', edit_quest_path(q), class: 'btn center-block edit' %>
+					<%= link_to 'Delete', quest_path(q), class: 'btn center-block delete', method: :delete %>
 				</div>	
 				<% end %>
 			<% else %>

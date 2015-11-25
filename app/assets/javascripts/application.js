@@ -13,6 +13,7 @@
 //= require jquery_ujs
 //= require sweet-alert
 //= require globals
+//= require main
 //= require map
 //= require quest
 //= require_tree .

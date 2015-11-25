@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  console.log("parallax sucks");
    // cache the window object
    $window = $(window);
  
@@ -19,3 +20,4 @@ $(document).ready(function(){
       }); // end window scroll
    });  // end section function
 });
+

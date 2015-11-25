@@ -77,12 +77,20 @@ h2{
 	border: 3px solid black;
 	.delete{
 		background-color: black;
-		width: 50%;
+		width: 80%;
 		margin-bottom: 10px;
 	}
 	.edit{
-		width: 50%;
+		width: 80%;
 		margin-bottom: 10px;
+	}
+	@media(min-width:800px){
+		.delete{
+			width: 50%;
+		}
+		.edit{
+			width: 50%;	
+		}
 	}
 
 }
@@ -96,8 +104,13 @@ h2{
 	margin-bottom: 20px;
 	border: 3px solid black;
 	.go-to{
-		width: 50%;
+		width: 80%;
 		margin-bottom: 10px;
+	}
+	@media(min-width: 800px){
+		.go-to{
+			width: 50%;
+		}
 	}
 }
 

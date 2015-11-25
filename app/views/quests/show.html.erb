@@ -4,8 +4,7 @@
     <div class="container objectives">
       <h2 class="text-center">Current Objectives</h2>
       <% @remaining_locations.each do |loc| %>
-        <h3 ><%= loc.name %></h3>
-        <p><%= loc.clue %></p>
+        <h4>Clue: <%= loc.clue %></h4>
       <% end %>
     </div>
     <div class="container completed">

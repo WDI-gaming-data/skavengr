@@ -4,6 +4,7 @@
 #first { 
     background: url('/vulture2.jpg') 50%; 
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 100%;  
     margin: 0 auto; 
     width: 100%; 
@@ -17,11 +18,13 @@
 #middle { 
     background: url('/oldmap.jpg') 50%; 
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 100%;  
     margin: 0 auto; 
     width: 100%; 
     position: relative; 
     padding: 200px 0;
+
 }
 #lmid{
 	height: 200px;
@@ -30,6 +33,7 @@
 #last { 
     background: url('/hyena.jpg') 50%; 
     background-size: 100%;
+    background-repeat: no-repeat;
     height: 100%;
     margin: 0 auto; 
     width: 100%; 

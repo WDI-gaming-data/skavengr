@@ -1,37 +1,50 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#welcome{
+	margin-top: 100px;
+	color: white;
+	font-size: 8vw;
+}
+#adventure{
+	color: white;
+	font-size: 3vw;
+}
 #first { 
-    background: url('/vulture2.jpg') 50%; 
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 100%;  
-    margin: 0 auto; 
-    width: 100%; 
-    position: relative; 
-    padding: 50px 0;
-}
-#fmid{
-	height: 200px;
-	background: white;
-}
-#middle { 
     background: url('/oldmap.jpg') 50%; 
     background-size: 100%;
     background-repeat: no-repeat;
+    height: 80%;  
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    border-bottom: 4px solid black;
+}
+#fmid{
+	height: 160px;
+	background: white;
+}
+#middle { 
+    background: url('/seattle.jpg') 50%; 
+    background-size: 100%;
+    background-repeat: no-repeat;
     height: 100%;  
     margin: 0 auto; 
     width: 100%; 
     position: relative; 
-    padding: 200px 0;
-
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
 }
 #lmid{
-	height: 200px;
+	height: 160px;
 	background: white;
+	.text-width{
+		width: 60%;
+		margin-left: 20%;
+	}
 }
 #last { 
-    background: url('/hyena.jpg') 50%; 
+    background: url('/vulture2.jpg') 50%; 
     background-size: 100%;
     background-repeat: no-repeat;
     height: 100%;
@@ -40,8 +53,9 @@
     position: relative; 
     padding: 100px 0;
     color: #fff;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
 }
-
 a {
 	color: #960404
 }
@@ -66,7 +80,7 @@ span {
 	}
 }
 #about{
-	font-size: 3vw;
+	font-size: 2vw;
 }
 ul li{
 	font-size: 2vw;

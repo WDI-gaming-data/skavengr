@@ -31,10 +31,10 @@ body{
 	font-family: 'Cabin Condensed';
 }
 .navbar{
-	background: linear-gradient(90deg, #960404, #8E2800, transparent 50%),
+	background: linear-gradient(90deg, black, #8E2800, transparent 50%),
 				 #8E2800  url('/Jawaz.png') no-repeat center;
 	background-size: 600px;
-	border-bottom: 4px solid white;
+	border-bottom: 4px solid black;
 	border-radius: 0px;
 	margin-bottom: 0px;
 }
